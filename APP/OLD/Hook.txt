@@ -1,0 +1,76 @@
+// hooks/useOfflineQueue.ts
+import { useState, useEffect } from 'react';
+import { offlineQueueService, QueuedOperation } from '../services/offlineQueueService';
+
+export interface QueueStatus {
+  count: number;
+  isOnline: boolean;
+  isProcessing: boolean;
+}
+
+export const useOfflineQueue = () => {
+  const [queueStatus, setQueueStatus] = useState<QueueStatus>(
+    offlineQueueService.getQueueStatus()
+  );
+
+  useEffect(() => {
+    // Mettre à jour le statut périodiquement
+    const interval = setInterval(() => {
+      setQueueStatus(offlineQueueService.getQueueStatus());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const addHPUpdate = (playerId: string, data: {
+    current_hp?: number;
+    temporary_hp?: number;
+    max_hp?: number;
+  }) => {
+    return offlineQueueService.addOperation('hp_update', playerId, data);
+  };
+
+  const addSpellSlotUpdate = (playerId: string, spell_slots: any) => {
+    return offlineQueueService.addOperation('spell_slot_update', playerId, {
+      spell_slots
+    });
+  };
+
+  const addAttackUpdate = (playerId: string, attackId: string, attackData: any) => {
+    return offlineQueueService.addOperation('attack_update', playerId, {
+      attackId,
+      attackData
+    });
+  };
+
+  const addAttackCreate = (playerId: string, attackData: any) => {
+    return offlineQueueService.addOperation('attack_create', playerId, {
+      attackData
+    });
+  };
+
+  const addAttackDelete = (playerId: string, attackId: string) => {
+    return offlineQueueService.addOperation('attack_delete', playerId, {
+      attackId
+    });
+  };
+
+  const processQueue = () => {
+    return offlineQueueService.processQueue();
+  };
+
+  const clearQueue = () => {
+    offlineQueueService.clearQueue();
+  };
+
+  return {
+    queueStatus,
+    addHPUpdate,
+    addSpellSlotUpdate,
+    addAttackUpdate,
+    addAttackCreate,
+    addAttackDelete,
+    processQueue,
+    clearQueue
+  };
+};

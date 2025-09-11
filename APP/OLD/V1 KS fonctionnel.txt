@@ -1,0 +1,762 @@
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { Plus, Trash2, BookOpen, Search, Filter, Check, X, ChevronDown, ChevronRight, Zap, Eye } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Player } from '../types/dnd';
+import { supabase } from '../lib/supabase';
+import toast from 'react-hot-toast';
+import { SpellbookModal } from './SpellbookModal';
+
+interface KnownSpell {
+  id: string;
+  player_id: string;
+  spell_id: string;
+  spell_name: string;
+  spell_level: number;
+  spell_school: string;
+  spell_description: string;
+  spell_casting_time: string;
+  spell_range: string;
+  spell_duration: string;
+  spell_components: {
+    V: boolean;
+    S: boolean;
+    M: string | null;
+  };
+  spell_higher_levels?: string;
+  is_prepared: boolean;
+  created_at: string;
+}
+
+interface Spell {
+  id: string;
+  name: string;
+  level: number;
+  school: string;
+  casting_time: string;
+  range: string;
+  components: {
+    V: boolean;
+    S: boolean;
+    M: string | null;
+  };
+  duration: string;
+  description: string;
+  higher_levels?: string;
+  classes: string[];
+}
+
+interface KnownSpellsSectionProps {
+  player: Player;
+  onUpdate: (player: Player) => void;
+}
+
+// Utilitaire pour formater les composantes de sort
+const getComponentsText = (components: { V: boolean; S: boolean; M: string | null }) => {
+  const parts = [];
+  if (components.V) parts.push('V');
+  if (components.S) parts.push('S');
+  if (components.M) parts.push(`M (${components.M})`);
+  return parts.join(', ');
+};
+
+// Animation CSS personnalisée pour les effets magiques
+const magicalAnimationCSS = `
+  @keyframes magical-explosion {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+      background: radial-gradient(circle, #8b5cf6 0%, #3b82f6 50%, transparent 70%);
+      border-radius: 50%;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 0.8;
+      box-shadow: 0 0 20px #8b5cf6, 0 0 40px #3b82f6;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes spell-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.3); }
+  }
+`;
+
+// Composant pour afficher les statistiques de niveau
+const SpellLevelStats = React.memo(({ 
+  levelName, 
+  player, 
+  onUpdate, 
+  usedSlots, 
+  maxSlots 
+}: {
+  levelName: string;
+  player: Player;
+  onUpdate: (player: Player) => void;
+  usedSlots: number;
+  maxSlots: number;
+}) => {
+  const level = parseInt(levelName.split(' ')[1]);
+  const remainingSlots = Math.max(0, maxSlots - usedSlots);
+
+  const handleSlotUse = useCallback(async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    
+    if (remainingSlots <= 0) return;
+    
+    // Animation magique
+    const button = e.currentTarget as HTMLButtonElement;
+    const rect = button.getBoundingClientRect();
+    
+    const animationContainer = document.createElement('div');
+    animationContainer.style.position = 'fixed';
+    animationContainer.style.left = `${rect.left}px`;
+    animationContainer.style.top = `${rect.top}px`;
+    animationContainer.style.width = `${rect.width}px`;
+    animationContainer.style.height = `${rect.height}px`;
+    animationContainer.style.pointerEvents = 'none';
+    animationContainer.style.zIndex = '9999';
+    
+    const animationElement = document.createElement('div');
+    animationElement.style.position = 'absolute';
+    animationElement.style.left = '50%';
+    animationElement.style.top = '50%';
+    animationElement.style.width = '200px';
+    animationElement.style.height = '200px';
+    animationElement.style.animation = 'magical-explosion 0.6s ease-out forwards';
+    
+    animationContainer.appendChild(animationElement);
+    document.body.appendChild(animationContainer);
+    
+    setTimeout(() => animationContainer.remove(), 600);
+    
+    try {
+      const levelKey = `level${level}` as keyof typeof player.spell_slots;
+      const usedKey = `used${level}` as keyof typeof player.spell_slots;
+      
+      const newSpellSlots = {
+        ...player.spell_slots,
+        [usedKey]: usedSlots + 1
+      };
+      
+      const { error } = await supabase
+        .from('players')
+        .update({ spell_slots: newSpellSlots })
+        .eq('id', player.id);
+      
+      if (error) throw error;
+      
+      onUpdate({
+        ...player,
+        spell_slots: newSpellSlots
+      });
+      
+      toast.success(`✨ Emplacement de niveau ${level} utilisé`);
+    } catch (error) {
+      console.error('Erreur lors de la mise à jour des emplacements de sorts:', error);
+      toast.error('Erreur lors de la mise à jour');
+    }
+  }, [level, remainingSlots, usedSlots, player, onUpdate]);
+
+  if (maxSlots === 0) return null;
+
+  return (
+    <div className="flex items-center gap-2 ml-2 ml-auto">
+      {/* Cases colorées avec animation - alignées à droite */}
+      <div className="flex gap-0.5">
+        {Array.from({ length: maxSlots }, (_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-sm border transition-all duration-300 ${
+              index < usedSlots
+                ? 'bg-gray-600 border-gray-500 opacity-50'
+                : 'bg-purple-500 border-purple-400 shadow-sm animate-pulse'
+            }`}
+            style={{
+              animationDelay: `${index * 0.1}s`,
+              animationDuration: '2s'
+            }}
+          />
+        ))}
+      </div>
+      
+      <span className={`text-xs transition-colors ${
+        remainingSlots === 0 ? 'text-red-400' : remainingSlots <= 2 ? 'text-yellow-400' : 'text-gray-400'
+      }`}>
+        {remainingSlots}/{maxSlots}
+      </span>
+
+      {/* Bouton pour consommer (déplacé à droite des emplacements) */}
+      <button
+        onClick={handleSlotUse}
+        className={`w-4 h-4 rounded border flex items-center justify-center text-xs font-bold transition-all duration-200 ml-2 ${
+          remainingSlots > 0
+            ? 'bg-red-500/20 border-red-500/40 text-red-400 hover:bg-red-500/30 hover:border-red-500/60 hover:scale-110 active:scale-95'
+            : 'bg-gray-700/50 border-gray-600/50 text-gray-500 cursor-not-allowed'
+        }`}
+        disabled={remainingSlots <= 0}
+        title={`Consommer un emplacement de niveau ${level}`}
+      >
+        <Zap size={8} />
+      </button>
+    </div>
+  );
+});
+
+SpellLevelStats.displayName = 'SpellLevelStats';
+
+// Composant pour une carte de sort individuelle
+const SpellCard = React.memo(({ 
+  spell, 
+  expandedSpell, 
+  setExpandedSpell,
+  onTogglePrepared,
+  onRemoveSpell
+}: {
+  spell: KnownSpell;
+  expandedSpell: string | null;
+  setExpandedSpell: (id: string | null) => void;
+  onTogglePrepared: (id: string, isPrepared: boolean) => void;
+  onRemoveSpell: (id: string) => void;
+}) => {
+  const isExpanded = expandedSpell === spell.id;
+
+  return (
+    <div 
+      className={`bg-gray-800/50 border border-gray-700/50 rounded-lg overflow-hidden transition-all duration-300 ${
+        isExpanded ? 'ring-2 ring-purple-500/30 shadow-lg shadow-purple-900/20' : 'hover:bg-gray-700/50'
+      } ${spell.is_prepared ? 'border-green-500/30 bg-green-900/10' : ''}`}
+    >
+      <button
+        onClick={() => setExpandedSpell(isExpanded ? null : spell.id)}
+        className="w-full text-left p-2 transition-all duration-200"
+      >
+        <div className="flex items-start justify-between mb-2">
+          <div className="flex items-center gap-3">
+            <h4 className={`font-medium transition-colors ${
+              spell.is_prepared ? 'text-green-100' : 'text-gray-100'
+            }`}>
+              {spell.spell_name}
+            </h4>
+            {spell.is_prepared && (
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            )}
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <div className={`text-xs px-2 py-1 rounded-full font-medium transition-colors ${
+              spell.spell_level === 0 
+                ? 'bg-blue-500/20 text-blue-400' 
+                : 'bg-purple-500/20 text-purple-400'
+            }`}>
+              {spell.spell_level === 0 ? 'Tour' : `Niv. ${spell.spell_level}`}
+            </div>
+            {spell.is_prepared && (
+              <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full flex items-center gap-1">
+                <Check size={10} />
+                Préparé
+              </span>
+            )}
+            <div className={`transform transition-transform duration-300 ${
+              isExpanded ? 'rotate-180' : ''
+            }`}>
+              <ChevronDown className="w-5 h-5 text-gray-400" />
+            </div>
+          </div>
+        </div>
+        <div className="text-sm text-gray-400 mb-2 flex items-center gap-2">
+          <span className="capitalize">{spell.spell_school}</span>
+          <span>•</span>
+          <span>{spell.spell_casting_time}</span>
+          <span>•</span>
+          <span>{spell.spell_range}</span>
+        </div>
+      </button>
+      
+      {/* Actions avec boutons plus petits */}
+      <div className="px-2 pb-2 flex items-center justify-end gap-1">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onTogglePrepared(spell.id, spell.is_prepared);
+          }}
+          className={`w-6 h-6 rounded-lg transition-all duration-200 ${
+            spell.is_prepared
+              ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30 shadow-lg shadow-green-900/20'
+              : 'bg-gray-700/50 text-gray-400 hover:bg-gray-600/50'
+          } hover:scale-110 active:scale-95 flex items-center justify-center`}
+          title={spell.is_prepared ? 'Dépréparer' : 'Préparer'}
+        >
+          <Check size={16} />
+        </button>
+        
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setExpandedSpell(isExpanded ? null : spell.id);
+          }}
+          className="w-6 h-6 text-gray-400 hover:text-blue-400 hover:bg-blue-900/30 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 flex items-center justify-center"
+          title="Voir détails"
+        >
+          <Eye size={16} />
+        </button>
+        
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onRemoveSpell(spell.id);
+          }}
+          className="w-6 h-6 text-gray-400 hover:text-red-400 hover:bg-red-900/30 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 flex items-center justify-center"
+          title="Supprimer"
+        >
+          <Trash2 size={16} />
+        </button>
+      </div>
+      
+      {/* Détails étendus */}
+      {isExpanded && (
+        <div className="border-t border-gray-700/50 bg-gray-900/50 p-3 space-y-4 animate-in slide-in-from-top duration-300">
+          {/* Grille d'informations de lancement */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="bg-gray-800/50 p-2 rounded-lg border border-gray-700/30">
+              <div className="text-xs font-medium text-gray-400 mb-1">Temps d'incantation</div>
+              <div className="text-sm text-gray-200 font-medium">{spell.spell_casting_time}</div>
+            </div>
+            <div className="bg-gray-800/50 p-2 rounded-lg border border-gray-700/30">
+              <div className="text-xs font-medium text-gray-400 mb-1">Portée</div>
+              <div className="text-sm text-gray-200 font-medium">{spell.spell_range}</div>
+            </div>
+            <div className="bg-gray-800/50 p-2 rounded-lg border border-gray-700/30">
+              <div className="text-xs font-medium text-gray-400 mb-1">Composantes</div>
+              <div className="text-sm text-gray-200 font-medium">{getComponentsText(spell.spell_components)}</div>
+            </div>
+            <div className="bg-gray-800/50 p-2 rounded-lg border border-gray-700/30">
+              <div className="text-xs font-medium text-gray-400 mb-1">Durée</div>
+              <div className="text-sm text-gray-200 font-medium">{spell.spell_duration}</div>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="bg-gray-800/30 p-3 rounded-lg border border-gray-700/20">
+            <h5 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
+              <BookOpen size={16} className="text-blue-400" />
+              Description
+            </h5>
+            <div className="text-gray-300 leading-relaxed whitespace-pre-line">{spell.spell_description}</div>
+          </div>
+
+          {/* Niveaux supérieurs */}
+          {spell.spell_higher_levels && (
+            <div className="bg-purple-900/20 p-3 rounded-lg border border-purple-700/30">
+              <h5 className="font-semibold text-purple-300 mb-3 flex items-center gap-2">
+                <Zap size={16} className="text-purple-400" />
+                Aux niveaux supérieurs
+              </h5>
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{spell.spell_higher_levels}</p>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+});
+
+SpellCard.displayName = 'SpellCard';
+
+export function KnownSpellsSection({ player, onUpdate }: KnownSpellsSectionProps) {
+  const [knownSpells, setKnownSpells] = useState<KnownSpell[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showSpellbook, setShowSpellbook] = useState(false);
+  const [selectedSpells, setSelectedSpells] = useState<Spell[]>([]);
+  const [expandedSpell, setExpandedSpell] = useState<string | null>(null);
+  const [collapsedLevels, setCollapsedLevels] = useState<Set<string>>(new Set());
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterPrepared, setFilterPrepared] = useState<'all' | 'prepared' | 'unprepared'>('all');
+
+  // Injecter les styles CSS pour les animations
+  useEffect(() => {
+    const styleId = 'magical-animations';
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = magicalAnimationCSS;
+      document.head.appendChild(style);
+    }
+  }, []);
+
+  const toggleLevelCollapse = useCallback((levelName: string) => {
+    setCollapsedLevels(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(levelName)) {
+        newSet.delete(levelName);
+      } else {
+        newSet.add(levelName);
+      }
+      return newSet;
+    });
+  }, []);
+
+  useEffect(() => {
+    fetchKnownSpells();
+  }, [player.id]);
+
+  const fetchKnownSpells = async () => {
+    try {
+      setLoading(true);
+      
+      const { data, error } = await supabase
+        .from('player_spells')
+        .select(`
+          id,
+          player_id,
+          spell_id,
+          is_prepared,
+          created_at,
+          spells (
+            id,
+            name,
+            level,
+            school,
+            casting_time,
+            range,
+            components,
+            duration,
+            description,
+            higher_levels
+          )
+        `)
+        .eq('player_id', player.id)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+
+      const transformedSpells: KnownSpell[] = (data || []).map(item => ({
+        id: item.id,
+        player_id: item.player_id,
+        spell_id: item.spell_id,
+        spell_name: item.spells.name,
+        spell_level: item.spells.level,
+        spell_school: item.spells.school,
+        spell_description: item.spells.description,
+        spell_casting_time: item.spells.casting_time,
+        spell_range: item.spells.range,
+        spell_duration: item.spells.duration,
+        spell_components: item.spells.components,
+        spell_higher_levels: item.spells.higher_levels,
+        is_prepared: item.is_prepared,
+        created_at: item.created_at
+      }));
+
+      setKnownSpells(transformedSpells);
+    } catch (error) {
+      console.error('Erreur lors de la récupération des sorts connus:', error);
+      toast.error('Erreur lors de la récupération des sorts connus');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSpellsSelected = async (spells: Spell[]) => {
+    try {
+      const spellIds = spells.map(s => s.id);
+      const { data: existingSpells } = await supabase
+        .from('spells')
+        .select('id')
+        .in('id', spellIds);
+
+      const existingSpellIds = new Set(existingSpells?.map(s => s.id) || []);
+      
+      const spellsToInsert = spells
+        .filter(spell => !existingSpellIds.has(spell.id))
+        .map(spell => ({
+          id: spell.id,
+          name: spell.name,
+          level: spell.level,
+          school: spell.school,
+          casting_time: spell.casting_time,
+          range: spell.range,
+          components: spell.components,
+          duration: spell.duration,
+          description: spell.description,
+          higher_levels: spell.higher_levels || null
+        }));
+
+      if (spellsToInsert.length > 0) {
+        const { error: insertError } = await supabase
+          .from('spells')
+          .upsert(spellsToInsert, { onConflict: 'id', ignoreDuplicates: true });
+
+        if (insertError) {
+          console.log('Info: Certains sorts existent déjà (normal)');
+        }
+      }
+
+      const playerSpellsToInsert = spells.map(spell => ({
+        player_id: player.id,
+        spell_id: spell.id,
+        is_prepared: false
+      }));
+
+      const { error: linkError } = await supabase
+        .from('player_spells')
+        .upsert(playerSpellsToInsert, { 
+          onConflict: 'player_id,spell_id',
+          ignoreDuplicates: true 
+        });
+
+      if (linkError) throw linkError;
+
+      await fetchKnownSpells();
+      toast.success(`✨ ${spells.length} sort${spells.length > 1 ? 's' : ''} ajouté${spells.length > 1 ? 's' : ''} à vos sorts connus`);
+    } catch (error: any) {
+      console.error('Erreur lors de l\'ajout des sorts:', error);
+      toast.error('Erreur lors de l\'ajout des sorts');
+    }
+  };
+
+  const removeKnownSpell = useCallback(async (spellId: string) => {
+    try {
+      const { error } = await supabase
+        .from('player_spells')
+        .delete()
+        .eq('id', spellId);
+
+      if (error) throw error;
+
+      setKnownSpells(prev => prev.filter(spell => spell.id !== spellId));
+      toast.success('Sort retiré de vos sorts connus');
+    } catch (error) {
+      console.error('Erreur lors de la suppression du sort:', error);
+      toast.error('Erreur lors de la suppression du sort');
+    }
+  }, []);
+
+  const togglePrepared = useCallback(async (spellId: string, isPrepared: boolean) => {
+    try {
+      const { error } = await supabase
+        .from('player_spells')
+        .update({ is_prepared: !isPrepared })
+        .eq('id', spellId);
+
+      if (error) throw error;
+
+      setKnownSpells(prev => prev.map(spell => 
+        spell.id === spellId 
+          ? { ...spell, is_prepared: !isPrepared }
+          : spell
+      ));
+
+      toast.success(`✨ Sort ${isPrepared ? 'dépréparé' : 'préparé'}`);
+    } catch (error) {
+      console.error('Erreur lors de la mise à jour du sort:', error);
+      toast.error('Erreur lors de la mise à jour');
+    }
+  }, []);
+
+  // Filtrage et groupement des sorts avec useMemo pour optimisation
+  const { filteredSpells, preparedCount } = useMemo(() => {
+    let filtered = knownSpells;
+
+    // Filtre par terme de recherche
+    if (searchTerm) {
+      filtered = filtered.filter(spell => 
+        spell.spell_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        spell.spell_school.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Filtre par statut de préparation
+    if (filterPrepared !== 'all') {
+      filtered = filtered.filter(spell => 
+        filterPrepared === 'prepared' ? spell.is_prepared : !spell.is_prepared
+      );
+    }
+
+    const preparedCount = knownSpells.filter(s => s.is_prepared).length;
+
+    return { filteredSpells: filtered, preparedCount };
+  }, [knownSpells, searchTerm, filterPrepared]);
+
+  const groupedSpells = useMemo(() => {
+    return filteredSpells.reduce((groups, spell) => {
+      const level = spell.spell_level;
+      const levelKey = level === 0 ? 'Tours de magie' : `Niveau ${level}`;
+      if (!groups[levelKey]) {
+        groups[levelKey] = [];
+      }
+      groups[levelKey].push(spell);
+      return groups;
+    }, {} as Record<string, KnownSpell[]>);
+  }, [filteredSpells]);
+
+  return (
+    <div className="stats-card">
+      <div className="stat-header flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <BookOpen className="w-5 h-5 text-blue-500" />
+          <div>
+            <h3 className="text-base font-semibold text-gray-100">
+              Sorts connus ({knownSpells.length})
+            </h3>
+            {preparedCount > 0 && (
+              <p className="text-sm text-green-400">
+                {preparedCount} préparé{preparedCount > 1 ? 's' : ''}
+              </p>
+            )}
+          </div>
+        </div>
+        <button
+          onClick={() => setShowSpellbook(true)}
+          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-3 py-1.5 rounded-lg font-medium transition-all duration-200 shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 flex items-center gap-2 hover:scale-105 active:scale-95"
+        >
+          <Plus size={16} />
+          Ajouter
+        </button>
+      </div>
+      
+      <div className="p-3">
+        {/* Barre de recherche et filtres */}
+        {knownSpells.length > 0 && (
+          <div className="mb-3 space-y-3">
+            <div className="flex gap-3">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
+                <input
+                  type="text"
+                  placeholder="Rechercher un sort..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full bg-gray-800/50 border border-gray-700/50 rounded-lg pl-10 pr-3 py-1.5 text-gray-100 placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:bg-gray-800/70 transition-all duration-200"
+                />
+              </div>
+              <select
+                value={filterPrepared}
+                onChange={(e) => setFilterPrepared(e.target.value as 'all' | 'prepared' | 'unprepared')}
+                className="bg-gray-800/50 border border-gray-700/50 rounded-lg px-2 py-1.5 text-gray-100 focus:outline-none focus:border-blue-500/50 transition-all duration-200"
+              >
+                <option value="all">Tous les sorts</option>
+                <option value="prepared">Préparés</option>
+                <option value="unprepared">Non préparés</option>
+              </select>
+            </div>
+          </div>
+        )}
+
+        {loading ? (
+          <div className="flex items-center justify-center py-6">
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-500" />
+          </div>
+        ) : knownSpells.length === 0 ? (
+          <div className="text-center py-6">
+            <BookOpen className="w-12 h-12 mx-auto mb-3 text-gray-600" />
+            <p className="text-gray-400 mb-2">Aucun sort connu</p>
+            <p className="text-gray-500 text-sm">
+              Cliquez sur "Ajouter" pour choisir vos sorts
+            </p>
+          </div>
+        ) : filteredSpells.length === 0 ? (
+          <div className="text-center py-6">
+            <Search className="w-12 h-12 mx-auto mb-3 text-gray-600" />
+            <p className="text-gray-400 mb-2">Aucun sort trouvé</p>
+            <p className="text-gray-500 text-sm">
+              Essayez de modifier vos critères de recherche
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {Object.entries(groupedSpells)
+              .sort(([a], [b]) => {
+                if (a === 'Tours de magie') return -1;
+                if (b === 'Tours de magie') return 1;
+                const levelA = parseInt(a.split(' ')[1]);
+                const levelB = parseInt(b.split(' ')[1]);
+                return levelA - levelB;
+              })
+              .map(([levelName, spells]) => {
+                const level = levelName === 'Tours de magie' ? 0 : parseInt(levelName.split(' ')[1]);
+                const levelKey = `level${level}` as keyof typeof player.spell_slots;
+                const usedKey = `used${level}` as keyof typeof player.spell_slots;
+                const maxSlots = level === 0 ? 0 : (player.spell_slots?.[levelKey] || 0);
+                const usedSlots = level === 0 ? 0 : (player.spell_slots?.[usedKey] || 0);
+
+                return (
+                  <div key={levelName} className="space-y-2">
+                    <button
+                      onClick={() => toggleLevelCollapse(levelName)}
+                      className="w-full flex items-center justify-between text-left hover:bg-gray-800/30 rounded-lg p-2 transition-all duration-200 group"
+                    >
+                      <div className="flex items-center gap-3 flex-1">
+                        <h4 className="text-sm font-semibold text-purple-300 group-hover:text-purple-200 transition-colors">
+                          {levelName} ({spells.length})
+                        </h4>
+                        
+                        {/* Statistiques des emplacements de sorts */}
+                        {levelName !== 'Tours de magie' && (
+                          <SpellLevelStats
+                            levelName={levelName}
+                            player={player}
+                            onUpdate={onUpdate}
+                            usedSlots={usedSlots}
+                            maxSlots={maxSlots}
+                          />
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {collapsedLevels.has(levelName) ? (
+                          <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
+                        )}
+                      </div>
+                    </button>
+                    
+                    {!collapsedLevels.has(levelName) && (
+                      <div className="space-y-2 ml-2 animate-in slide-in-from-top duration-300">
+                        {spells.map((spell) => (
+                          <SpellCard
+                            key={spell.id}
+                            spell={spell}
+                            expandedSpell={expandedSpell}
+                            setExpandedSpell={setExpandedSpell}
+                            onTogglePrepared={togglePrepared}
+                            onRemoveSpell={removeKnownSpell}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+          </div>
+        )}
+      </div>
+
+      {/* Modal du grimoire pour ajouter des sorts */}
+      {showSpellbook && (
+        <SpellbookModal
+          isOpen={showSpellbook}
+          onClose={() => {
+            setShowSpellbook(false);
+            setSelectedSpells([]);
+          }}
+          playerClass={player.class}
+          selectionMode={true}
+          onSpellSelect={(spell) => {
+            setSelectedSpells(prev => {
+              const exists = prev.find(s => s.id === spell.id);
+              if (exists) {
+                return prev.filter(s => s.id !== spell.id);
+              } else {
+                return [...prev, spell];
+              }
+            });
+          }}
+          selectedSpells={selectedSpells}
+          onConfirm={handleSpellsSelected}
+        />
+      )}
+    </div>
+  );
+}

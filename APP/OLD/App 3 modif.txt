@@ -1,0 +1,159 @@
+import React, { useState, useEffect } from 'react';
+import { supabase } from './lib/supabase';
+import toast, { Toaster } from 'react-hot-toast';
+import { Player } from './types/dnd';
+import { InstallPrompt } from './components/InstallPrompt';
+
+type QueuedAction = () => Promise<void>;
+
+function App() {
+  const [session, setSession] = useState<any>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<Player | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [refreshingSession, setRefreshingSession] = useState(false);
+  const [actionQueue, setActionQueue] = useState<QueuedAction[]>([]);
+
+  const [LoginPage, setLoginPage] = useState<React.ComponentType<any> | null>(null);
+  const [CharacterSelectionPage, setCharacterSelectionPage] = useState<React.ComponentType<any> | null>(null);
+  const [GamePage, setGamePage] = useState<React.ComponentType<any> | null>(null);
+
+  // Persist selected character in localStorage
+  useEffect(() => {
+    if (selectedCharacter) {
+      localStorage.setItem('selectedCharacter', JSON.stringify(selectedCharacter));
+    }
+  }, [selectedCharacter]);
+
+  // Load pages dynamically
+  useEffect(() => {
+    const loadComponents = async () => {
+      const loginModule = await import('./pages/LoginPage');
+      const charModule = await import('./pages/CharacterSelectionPage');
+      const gameModule = await import('./pages/GamePage');
+
+      setLoginPage(() => loginModule.LoginPage);
+      setCharacterSelectionPage(() => charModule.CharacterSelectionPage);
+      setGamePage(() => gameModule.GamePage);
+    };
+    loadComponents();
+  }, []);
+
+  // Initialize session and restore character
+  useEffect(() => {
+    const initSession = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data?.session) setSession(data.session);
+
+      const savedChar = localStorage.getItem('selectedCharacter');
+      if (savedChar) {
+        try { setSelectedCharacter(JSON.parse(savedChar)); }
+        catch (e) { console.error('Error parsing selectedCharacter:', e); }
+      }
+
+      setLoading(false);
+    };
+    initSession();
+  }, []);
+
+  // Listen auth state changes
+  useEffect(() => {
+    const { data: subscription } = supabase.auth.onAuthStateChange(async (_event, newSession) => {
+      if (!newSession) {
+        setRefreshingSession(true);
+        const { data } = await supabase.auth.getSession();
+        if (data?.session) {
+          setSession(data.session);
+          toast.success('Session restaurée');
+        } else {
+          setSession(null);
+          toast.error('Session perdue, reconnexion nécessaire');
+        }
+        setRefreshingSession(false);
+      } else {
+        setSession(newSession);
+      }
+    });
+
+    const handleVisibility = async () => {
+      if (document.visibilityState === 'visible') {
+        const { data } = await supabase.auth.getSession();
+        if (data?.session) setSession(data.session);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      subscription?.subscription?.unsubscribe();
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
+  }, []);
+
+  // Run queued actions when session is valid
+  useEffect(() => {
+    const runQueue = async () => {
+      if (session && actionQueue.length > 0) {
+        const queueCopy = [...actionQueue];
+        setActionQueue([]);
+        for (const action of queueCopy) {
+          try { await action(); } 
+          catch (e) { console.error('Queued action failed:', e); }
+        }
+      }
+    };
+    runQueue();
+  }, [session, actionQueue]);
+
+  // Helper to queue actions
+  const safeAction = async (action: QueuedAction) => {
+    if (session) {
+      try { await action(); } 
+      catch (e) { 
+        console.error('Action failed, queued instead:', e); 
+        setActionQueue(prev => [...prev, action]); 
+      }
+    } else {
+      setActionQueue(prev => [...prev, action]);
+      toast.info('Action mise en file, session inactive');
+    }
+  };
+
+  if (loading || !LoginPage || !CharacterSelectionPage || !GamePage) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto" />
+          <p className="text-gray-400">Chargement...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Toaster position="top-right" />
+      <InstallPrompt />
+
+      {refreshingSession && (
+        <div className="fixed top-0 left-0 right-0 bg-yellow-500 text-black text-center py-2 z-50">
+          Tentative de reconnexion…
+        </div>
+      )}
+
+      {!selectedCharacter ? (
+        !session ? <LoginPage /> : <CharacterSelectionPage
+          session={session}
+          onCharacterSelect={setSelectedCharacter}
+        />
+      ) : (
+        <GamePage
+          session={session}
+          selectedCharacter={selectedCharacter}
+          onBackToSelection={() => setSelectedCharacter(null)}
+          safeAction={safeAction} // toutes les actions passent par la queue globale
+        />
+      )}
+    </>
+  );
+}
+
+export default App;
