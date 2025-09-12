@@ -1,6 +1,7 @@
 
 
-**Niveau 1 : Arts martiaux**  
+### Niveau 1 : Arts martiaux
+
 Votre pratique des arts martiaux vous permet de maîtriser des styles de combat axés sur vos attaques à mains nues et vos armes de Moine, à savoir :
 
 - Les armes courantes de corps à corps
@@ -17,7 +18,7 @@ Tant que vous combattez à mains nues ou avec des armes de Moine et que vous ne 
 **Attaques lestes.** Vous pouvez appliquer votre modificateur de Dextérité au lieu de celui de Force pour les jets d’attaque et de dégâts si vous attaquez à mains nues ou avec des armes de Moine. De plus, lorsque vous recourez à l’option Bousculade ou Lutte de votre attaque à mains nues, vous pouvez appliquer votre modificateur de Dextérité au lieu de celui de Force pour en déterminer le DD de sauvegarde.
 
 
-**Niveau 1 : Défense sans armure**  
+### Niveau 1 : Défense sans armure**  
 Tant que vous ne portez pas d’armure, votre classe d’armure de base est égale à 10 + vos modificateurs de Dextérité et de Sagesse.
 
 
