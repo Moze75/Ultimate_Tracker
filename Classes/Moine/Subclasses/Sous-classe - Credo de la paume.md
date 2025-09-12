@@ -1,8 +1,5 @@
 
 
-_Maîtrisez les techniques du combat à mains nues_
-
-Les Moines du Credo de la Paume excellent au combat à mains nues. Ils apprennent à bousculer et faire tomber leurs adversaires et à manipuler leur propre énergie pour consolider leur corps.
 
 ### Niveau 3 : Technique de la Paume 
 Chaque fois que vous touchez une créature avec l’une des attaques octroyées par Déluge de coups, vous pouvez imposer l’un des effets suivants à cette cible.
