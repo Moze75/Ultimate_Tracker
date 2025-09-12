@@ -19,6 +19,7 @@ import { Avatar } from './Avatar';
 import { CONDITIONS } from './ConditionsSection';
 import { SessionsModal } from './SessionsModal';
 import { LevelUpModal } from './LevelUpModal';
+import { ClassSelectionSection } from './ClassSelectionSection';
 
 // Helpers D&D
 const getModifier = (score: number): number => Math.floor((score - 10) / 2);
@@ -738,6 +739,15 @@ export function PlayerProfile({ player, onUpdate }: PlayerProfileProps) {
             <div className="text-xs uppercase tracking-wide text-gray-500 -mt-1 text-center -ml-2">MAÎT</div>
           </div>
         </div>
+
+        {/* Informations de classe (lecture seule) */}
+        <div className="mt-4">
+          <ClassSelectionSection 
+            player={player}
+            onUpdate={onUpdate}
+            editing={false}
+          />
+        </div>
       </div>
     );
   }
@@ -879,6 +889,23 @@ export function PlayerProfile({ player, onUpdate }: PlayerProfileProps) {
                   </select>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Informations des classes depuis le répertoire Classes/ */}
+          <div className="stat-card">
+            <div className="stat-header">
+              <h3 className="text-lg font-semibold text-gray-100">Informations des Classes</h3>
+            </div>
+            <div className="p-4">
+              <ClassSelectionSection 
+                player={{...player, class: selectedClass, subclass: selectedSubclass}}
+                onUpdate={(updatedPlayer) => {
+                  setSelectedClass(updatedPlayer.class as DndClass);
+                  setSelectedSubclass(updatedPlayer.subclass || '');
+                }}
+                editing={true}
+              />
             </div>
           </div>
 
