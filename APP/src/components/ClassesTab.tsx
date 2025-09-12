@@ -1,7 +1,31 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  ChevronDown,
+  ChevronUp,
+  Sparkles,
+  Flame,
+  Music,
+  Cross,
+  Leaf,
+  Wand2,
+  Swords,
+  Footprints,
+  HandHeart,
+  Target,
+  Skull,
+  BookOpen,
+  Settings,
+  Trash2,
+  Save,
+  X,
+  Plus,
+  Minus,
+} from 'lucide-react';
 import { loadAbilitySections } from '../services/classesContent';
 import { loadFeatureChecks, upsertFeatureCheck } from '../services/featureChecks';
+import { supabase } from '../lib/supabase';
+import toast from 'react-hot-toast';
+import type { ClassResources } from '../types/dnd';
 
 type AbilitySection = {
   level: number;
@@ -11,73 +35,77 @@ type AbilitySection = {
 };
 
 type PlayerLike = {
-  id?: string | null;       // id du personnage (pour persister les cases côté Supabase)
+  id?: string | null;
   class?: string | null;
   subclass?: string | null;
   level?: number | null;
+  class_resources?: ClassResources | null;
+  // Les champs ci-dessous sont facultatifs, utilisés pour lire CHA
+  stats?: { charisma?: number; CHA?: number } | null;
+  charisma?: number;
+  CHA?: number;
+  ability_scores?: { cha?: number } | null;
+  abilities?: { cha?: number } | null;
 };
 
 type Props = {
   player?: PlayerLike;
-  playerClass?: string;       // si pas de player
-  className?: string;         // rétrocompatibilité
+  playerClass?: string;
+  className?: string;
   subclassName?: string | null;
   characterLevel?: number;
 };
 
-// Active des logs de debug dans la console si window.UT_DEBUG === true
 const DEBUG = typeof window !== 'undefined' && (window as any).UT_DEBUG === true;
 
-/* Alias FR/EN pour compenser les divergences de nommage du contenu */
 const CLASS_ALIASES: Record<string, string[]> = {
-  // normalisé -> candidats possibles dans les données
-  'moine': ['Moine', 'Monk'],
-  'ensorceleur': ['Ensorceleur', 'Sorcier', 'Sorcerer'],
-  'barbare': ['Barbare', 'Barbarian'],
-  'barde': ['Barde', 'Bard'],
-  'clerc': ['Clerc', 'Cleric'],
-  'druide': ['Druide', 'Druid'],
-  'guerrier': ['Guerrier', 'Fighter'],
-  'paladin': ['Paladin'],
-  'rodeur': ['Rôdeur', 'Rodeur', 'Ranger'],
-  'voleur': ['Voleur', 'Rogue'],
-  'magicien': ['Magicien', 'Wizard'],
-  // ajoute si besoin
+  moine: ['Moine', 'Monk'],
+  ensorceleur: ['Ensorceleur', 'Sorcier', 'Sorcerer'],
+  barbare: ['Barbare', 'Barbarian'],
+  barde: ['Barde', 'Bard'],
+  clerc: ['Clerc', 'Cleric'],
+  druide: ['Druide', 'Druid'],
+  guerrier: ['Guerrier', 'Fighter'],
+  paladin: ['Paladin'],
+  rodeur: ['Rôdeur', 'Rodeur', 'Ranger'],
+  voleur: ['Voleur', 'Rogue', 'Roublard'],
+  magicien: ['Magicien', 'Wizard'],
 };
 
 const SUBCLASS_ALIASES: Record<string, string[]> = {
-  // moine
-  'voie de la paume': [
-    'Voie de la Paume',
-    'Voie de la Main Ouverte',
-    'Way of the Open Hand',
-    'Open Hand',
-    'Way Of The Open Hand',
-  ],
-  'voie de la main ouverte': [
-    'Voie de la Main Ouverte',
-    'Voie de la Paume',
-    'Way of the Open Hand',
-    'Open Hand',
-  ],
-  // quelques alias génériques utiles
+  'voie de la paume': ['Voie de la Paume', 'Voie de la Main Ouverte', 'Way of the Open Hand', 'Open Hand', 'Way Of The Open Hand'],
+  'voie de la main ouverte': ['Voie de la Main Ouverte', 'Voie de la Paume', 'Way of the Open Hand', 'Open Hand'],
   'credo de la paume': ['Voie de la Paume', 'Voie de la Main Ouverte', 'Way of the Open Hand'],
 };
 
-/* Normalisation forte (lookup interne) */
 function norm(s: string) {
   return (s || '')
     .trim()
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // sans accents
-    .replace(/\s*\([^)]*\)\s*/g, ' ') // sans parenthèses
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s*\([^)]*\)\s*/g, ' ')
     .replace(/[^a-z0-9]+/g, ' ')
     .replace(/\s{2,}/g, ' ')
     .trim();
 }
 
-/* Pour affichage seulement (majuscule initiale) */
+function canonicalClass(name: string): string {
+  const n = norm(name);
+  if (['barbare', 'barbarian'].includes(n)) return 'Barbare';
+  if (['barde', 'bard'].includes(n)) return 'Barde';
+  if (['clerc', 'cleric'].includes(n)) return 'Clerc';
+  if (['druide', 'druid'].includes(n)) return 'Druide';
+  if (['ensorceleur', 'sorcier', 'sorcerer'].includes(n)) return 'Ensorceleur';
+  if (['guerrier', 'fighter'].includes(n)) return 'Guerrier';
+  if (['magicien', 'wizard'].includes(n)) return 'Magicien';
+  if (['moine', 'monk'].includes(n)) return 'Moine';
+  if (['paladin'].includes(n)) return 'Paladin';
+  if (['rodeur', 'rôdeur', 'ranger'].includes(n)) return 'Rôdeur';
+  if (['roublard', 'voleur', 'rogue'].includes(n)) return 'Roublard';
+  return name || '';
+}
+
 function sentenceCase(s: string) {
   const t = (s || '').toLocaleLowerCase('fr-FR').trim();
   if (!t) return t;
@@ -106,25 +134,32 @@ function slug(s: string) {
     .replace(/(^-|-$)/g, '');
 }
 
-function ClassesTab({
-  player,
-  playerClass,
-  className,
-  subclassName,
-  characterLevel,
-}: Props) {
+// Helper CHA mod
+function getChaModFromPlayerLike(p?: any): number {
+  if (!p) return 0;
+  const score =
+    p?.stats?.charisma ??
+    p?.stats?.CHA ??
+    p?.charisma ??
+    p?.CHA ??
+    p?.ability_scores?.cha ??
+    p?.abilities?.cha ??
+    null;
+  return typeof score === 'number' ? Math.floor((score - 10) / 2) : 0;
+}
+
+function ClassesTab({ player, playerClass, className, subclassName, characterLevel }: Props) {
   const [sections, setSections] = useState<AbilitySection[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // État des cases cochées persistées
   const [checkedMap, setCheckedMap] = useState<Map<string, boolean>>(new Map());
   const [loadingChecks, setLoadingChecks] = useState(false);
 
-  // RAW (pour la recherche)
+  const [classResources, setClassResources] = useState<ClassResources | null | undefined>(player?.class_resources);
+
   const rawClass = (player?.class ?? playerClass ?? className ?? '').trim();
   const rawSubclass = (player?.subclass ?? subclassName) ?? null;
 
-  // DISPLAY (pour l’UI uniquement)
   const displayClass = rawClass ? sentenceCase(rawClass) : '';
   const displaySubclass = rawSubclass ? sentenceCase(rawSubclass) : null;
 
@@ -132,23 +167,20 @@ function ClassesTab({
   const finalLevel = Math.max(1, Number(finalLevelRaw) || 1);
   const characterId = player?.id ?? null;
 
-  // Chargement "smart" des sections avec variantes de normalisation + alias
+  useEffect(() => {
+    setClassResources(player?.class_resources);
+  }, [player?.class_resources, player?.id]);
+
   useEffect(() => {
     let mounted = true;
-
     if (!rawClass) {
       setSections([]);
       return;
     }
-
     (async () => {
       setLoading(true);
       try {
-        const res = await loadSectionsSmart({
-          className: rawClass,
-          subclassName: rawSubclass,
-          level: finalLevel,
-        });
+        const res = await loadSectionsSmart({ className: rawClass, subclassName: rawSubclass, level: finalLevel });
         if (!mounted) return;
         setSections(res);
       } catch (e) {
@@ -159,13 +191,11 @@ function ClassesTab({
         if (mounted) setLoading(false);
       }
     })();
-
     return () => {
       mounted = false;
     };
   }, [rawClass, rawSubclass, finalLevel]);
 
-  // Charger l’état des cases cochées
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -187,28 +217,169 @@ function ClassesTab({
     };
   }, [characterId]);
 
-  // Toggle + persistance
+  // Evite double init en StrictMode (guard)
+  const initKeyRef = useRef<string | null>(null);
+
+  // Auto-init silencieuse des ressources manquantes
+  useEffect(() => {
+    (async () => {
+      if (!player?.id || !displayClass) return;
+
+      const cls = canonicalClass(displayClass);
+      if (!cls) return;
+
+      const ensureKey = `${player.id}:${cls}:${finalLevel}`;
+      if (initKeyRef.current === ensureKey) return;
+
+      const current: Record<string, any> = { ...(classResources || {}) };
+      const defaults = buildDefaultsForClass(cls, finalLevel, player);
+
+      let changed = false;
+      for (const [k, v] of Object.entries(defaults)) {
+        if (current[k] === undefined || current[k] === null) {
+          current[k] = v;
+          changed = true;
+        }
+      }
+
+      if (!changed) return;
+
+      initKeyRef.current = ensureKey;
+      try {
+        const { error } = await supabase.from('players').update({ class_resources: current }).eq('id', player.id);
+        if (error) throw error;
+        setClassResources(current as ClassResources);
+      } catch (e) {
+        initKeyRef.current = null;
+        console.error('[ClassesTab] auto-init class_resources error:', e);
+      }
+    })();
+  }, [player?.id, displayClass, finalLevel, classResources, player]);
+
+  // Auto-cap dynamique pour Inspiration bardique (Barde): total = max(1, CHA mod), used <= total
+  const bardCapRef = useRef<string | null>(null);
+  useEffect(() => {
+    (async () => {
+      if (!player?.id || !displayClass) return;
+      if (canonicalClass(displayClass) !== 'Barde') return;
+
+      const cap = Math.max(1, getChaModFromPlayerLike(player));
+      const total = (classResources as any)?.bardic_inspiration;
+      const used = (classResources as any)?.used_bardic_inspiration || 0;
+
+      // Clé d'idempotence
+      const key = `${player.id}:${cap}:${total ?? 'u'}:${used}`;
+      if (bardCapRef.current === key) return;
+
+      // Si non initialisé, sera traité par l'auto-init ci-dessus
+      if (typeof cap !== 'number') return;
+
+      // Si le total diffère du cap ou si used dépasse, on corrige
+      if (typeof total !== 'number' || total !== cap || used > cap) {
+        const next = {
+          ...(classResources || {}),
+          bardic_inspiration: cap,
+          used_bardic_inspiration: Math.min(used, cap),
+        };
+
+        try {
+          const { error } = await supabase.from('players').update({ class_resources: next }).eq('id', player.id);
+          if (error) throw error;
+          setClassResources(next as ClassResources);
+          bardCapRef.current = key;
+        } catch (e) {
+          console.error('[ClassesTab] bard cap update error:', e);
+          bardCapRef.current = null;
+        }
+      } else {
+        bardCapRef.current = key;
+      }
+    })();
+  }, [
+    player?.id,
+    displayClass,
+    // Dépendances qui peuvent impacter CHA
+    player?.stats?.charisma,
+    player?.stats?.CHA,
+    player?.charisma,
+    player?.CHA,
+    player?.ability_scores?.cha,
+    player?.abilities?.cha,
+    classResources?.bardic_inspiration,
+    classResources?.used_bardic_inspiration,
+  ]);
+
   async function handleToggle(featureKey: string, checked: boolean) {
-    // Optimistic UI
     setCheckedMap(prev => {
       const next = new Map(prev);
       next.set(featureKey, checked);
       return next;
     });
-    // Persist
     try {
       await upsertFeatureCheck({
         characterId,
-        className: displayClass,          // stocke version affichée
+        className: displayClass,
         subclassName: displaySubclass ?? null,
         featureKey,
         checked,
       });
     } catch (e) {
       if (DEBUG) console.debug('[ClassesTab] upsertFeatureCheck error:', e);
-      // On peut rester optimiste
     }
   }
+
+  const updateClassResource = async (
+    resource: keyof ClassResources,
+    value: ClassResources[keyof ClassResources]
+  ) => {
+    if (!player?.id) return;
+    const next = { ...(classResources || {}), [resource]: value };
+
+    try {
+      const { error } = await supabase.from('players').update({ class_resources: next }).eq('id', player.id);
+      if (error) throw error;
+      setClassResources(next as ClassResources);
+
+      if (typeof value === 'boolean') {
+        toast.success(`Récupération arcanique ${value ? 'utilisée' : 'disponible'}`);
+      } else {
+        const resourceNames: Record<string, string> = {
+          rage: 'Rage',
+          bardic_inspiration: 'Inspiration bardique',
+          channel_divinity: 'Conduit divin',
+          wild_shape: 'Forme sauvage',
+          sorcery_points: 'Points de sorcellerie',
+          action_surge: "Sursaut d'action",
+          credo_points: 'Points de crédo',
+          lay_on_hands: 'Imposition des mains',
+          favored_foe: 'Ennemi juré',
+          sneak_attack: 'Attaque sournoise',
+        };
+
+        const key = String(resource);
+        const displayKey = key.replace('used_', '');
+        const resourceName = resourceNames[displayKey] || displayKey;
+        const isUsed = key.startsWith('used_');
+        const previous = (classResources as any)?.[resource];
+        const action =
+          isUsed && typeof previous === 'number' && typeof value === 'number'
+            ? value > previous
+              ? 'utilisé'
+              : 'récupéré'
+            : 'mis à jour';
+
+        if (isUsed && typeof previous === 'number' && typeof value === 'number') {
+          const diff = Math.abs((value as number) - (previous as number));
+          toast.success(`${diff} ${resourceName} ${action}`);
+        } else {
+          toast.success(`${resourceName} ${action}`);
+        }
+      }
+    } catch (err) {
+      console.error('Erreur lors de la mise à jour des ressources:', err);
+      toast.error('Erreur lors de la mise à jour');
+    }
+  };
 
   const visible = useMemo(
     () =>
@@ -222,7 +393,6 @@ function ClassesTab({
 
   return (
     <div className="space-y-4">
-      {/* En-tête minimal: <Classe> - <Sous-classe> */}
       <div className="bg-gradient-to-r from-violet-700/30 via-fuchsia-600/20 to-amber-600/20 border border-white/10 rounded-2xl px-4 py-3 ring-1 ring-black/5 shadow-md shadow-black/20">
         <div className="flex items-center justify-between">
           <span className="text-sm font-semibold text-white">
@@ -232,10 +402,18 @@ function ClassesTab({
         </div>
       </div>
 
+      {hasClass && (
+        <ClassResourcesCard
+          playerClass={displayClass}
+          resources={classResources || undefined}
+          onUpdateResource={updateClassResource}
+          player={player}
+          level={finalLevel}
+        />
+      )}
+
       {!hasClass ? (
-        <div className="text-center text-white/70 py-10">
-          Sélectionne une classe pour afficher les aptitudes.
-        </div>
+        <div className="text-center text-white/70 py-10">Sélectionne une classe pour afficher les aptitudes.</div>
       ) : loading ? (
         <div className="flex items-center justify-center py-12">
           <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-violet-400" />
@@ -268,41 +446,45 @@ function ClassesTab({
   );
 }
 
-/* ———— Chargement "smart" des sections ————
-   Essaie:
-   - brut
-   - sans parenthèses
-   - sans accents
-   - sentenceCase
-   - alias FR/EN
-   - fallback sans sous-classe
-   Loggue les tentatives si UT_DEBUG = true.
-*/
-async function loadSectionsSmart(params: {
-  className: string;
-  subclassName: string | null;
-  level: number;
-}): Promise<AbilitySection[]> {
-  const { className, subclassName, level } = params;
+function buildDefaultsForClass(cls: string, level: number, player?: PlayerLike | any): Partial<ClassResources> {
+  switch (cls) {
+    case 'Barbare':
+      return { rage: Math.min(6, Math.floor((level + 3) / 4) + 2), used_rage: 0 };
+    case 'Barde': {
+      const chaMod = getChaModFromPlayerLike(player);
+      return { bardic_inspiration: Math.max(1, chaMod), used_bardic_inspiration: 0 };
+    }
+    case 'Clerc':
+      return { channel_divinity: level >= 6 ? 2 : 1, used_channel_divinity: 0 };
+    case 'Druide':
+      return { wild_shape: 2, used_wild_shape: 0 };
+    case 'Ensorceleur':
+      return { sorcery_points: level, used_sorcery_points: 0 };
+    case 'Guerrier':
+      return { action_surge: level >= 17 ? 2 : 1, used_action_surge: 0 };
+    case 'Magicien':
+      return { arcane_recovery: true, used_arcane_recovery: false };
+    case 'Moine':
+      return { credo_points: level, used_credo_points: 0 };
+    case 'Paladin':
+      return { lay_on_hands: level * 5, used_lay_on_hands: 0 };
+    case 'Rôdeur':
+      return { favored_foe: Math.max(1, Math.floor((level + 3) / 4)), used_favored_foe: 0 };
+    case 'Roublard':
+      return { sneak_attack: `${Math.ceil(level / 2)}d6` };
+    default:
+      return {};
+  }
+}
 
+async function loadSectionsSmart(params: { className: string; subclassName: string | null; level: number }): Promise<AbilitySection[]> {
+  const { className, subclassName, level } = params;
   const clsNorm = norm(className);
   const subNorm = subclassName ? norm(subclassName) : '';
 
-  // Candidats de base
-  const classCandidatesBase = uniq([
-    className,
-    stripDiacritics(className),
-    stripParentheses(className),
-    sentenceCase(className),
-  ]).filter(Boolean) as string[];
-  const subclassCandidatesBase = uniq([
-    subclassName ?? '',
-    stripParentheses(subclassName ?? ''),
-    stripDiacritics(subclassName ?? ''),
-    sentenceCase(subclassName ?? ''),
-  ]).filter(Boolean) as string[];
+  const classCandidatesBase = uniq([className, stripDiacritics(className), stripParentheses(className), sentenceCase(className)]).filter(Boolean) as string[];
+  const subclassCandidatesBase = uniq([subclassName ?? '', stripParentheses(subclassName ?? ''), stripDiacritics(subclassName ?? ''), sentenceCase(subclassName ?? '')]).filter(Boolean) as string[];
 
-  // Ajout des alias
   const classAlias = CLASS_ALIASES[clsNorm] ?? [];
   const subclassAlias = subNorm ? (SUBCLASS_ALIASES[subNorm] ?? []) : [];
 
@@ -310,7 +492,6 @@ async function loadSectionsSmart(params: {
   const subclassCandidates = uniq([...subclassCandidatesBase, ...subclassAlias]).filter(Boolean) as string[];
 
   if (DEBUG) {
-    // eslint-disable-next-line no-console
     console.debug('[ClassesTab] Tentatives de chargement', {
       input: { className, subclassName, level },
       normalized: { clsNorm, subNorm },
@@ -319,16 +500,11 @@ async function loadSectionsSmart(params: {
     });
   }
 
-  // 1) Essayer toutes les combinaisons (classe x sous-classe)
   for (const c of classCandidates) {
     for (const sc of subclassCandidates) {
       try {
         if (DEBUG) console.debug('[ClassesTab] loadAbilitySections try', { className: c, subclassName: sc, level });
-        const res = await loadAbilitySections({
-          className: c,
-          subclassName: sc,
-          characterLevel: level,
-        });
+        const res = await loadAbilitySections({ className: c, subclassName: sc, characterLevel: level });
         const secs = (res?.sections ?? []) as AbilitySection[];
         if (Array.isArray(secs) && secs.length > 0) {
           if (DEBUG) console.debug('[ClassesTab] -> OK', { className: c, subclassName: sc, count: secs.length });
@@ -340,15 +516,10 @@ async function loadSectionsSmart(params: {
     }
   }
 
-  // 2) Essayer avec la classe uniquement (sans sous-classe)
   for (const c of classCandidates) {
     try {
       if (DEBUG) console.debug('[ClassesTab] loadAbilitySections try (class only)', { className: c, level });
-      const res = await loadAbilitySections({
-        className: c,
-        subclassName: null,
-        characterLevel: level,
-      });
+      const res = await loadAbilitySections({ className: c, subclassName: null, characterLevel: level });
       const secs = (res?.sections ?? []) as AbilitySection[];
       if (Array.isArray(secs) && secs.length > 0) {
         if (DEBUG) console.debug('[ClassesTab] -> OK (class only)', { className: c, count: secs.length });
@@ -358,12 +529,8 @@ async function loadSectionsSmart(params: {
       if (DEBUG) console.debug('[ClassesTab] -> KO (class only)', { className: c, error: e });
     }
   }
-
-  // 3) Échec
   return [];
 }
-
-/* ———— Carte repliable, typo alignée, contenu bien visible ———— */
 
 function AbilityCard({
   section,
@@ -387,7 +554,6 @@ function AbilityCard({
         'bg-[radial-gradient(ellipse_at_top_left,rgba(120,53,15,.12),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(91,33,182,.10),transparent_45%)]',
       ].join(' ')}
     >
-      {/* En-tête cliquable (toggle), sans étiquette texte */}
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
@@ -399,7 +565,6 @@ function AbilityCard({
           <div className="pt-0.5 shrink-0">
             <LevelBadge level={section.level} />
           </div>
-
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
               <h3 className="text-white font-semibold text-base sm:text-lg truncate">
@@ -408,18 +573,13 @@ function AbilityCard({
               <OriginPill origin={section.origin} />
             </div>
           </div>
-
           <div className="ml-2 mt-0.5 text-white/80">
             {open ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
           </div>
         </div>
       </button>
 
-      {/* Contenu repliable — padding top léger, pas de marge négative */}
-      <div
-        id={contentId}
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-[200vh] opacity-100' : 'max-h-0 opacity-0'}`}
-      >
+      <div id={contentId} className={`overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-[200vh] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-4 pt-1 pb-4">
           {disableContentWhileLoading ? (
             <div className="h-6 w-24 bg-white/10 rounded animate-pulse" />
@@ -439,8 +599,6 @@ function AbilityCard({
     </article>
   );
 }
-
-/* ———— Étiquettes ———— */
 
 function LevelBadge({ level }: { level: number }) {
   return (
@@ -462,17 +620,13 @@ function OriginPill({ origin }: { origin: 'class' | 'subclass' }) {
     <span
       className={[
         'inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase ring-1 ring-inset',
-        isClass
-          ? 'bg-violet-500/15 text-violet-200 ring-violet-400/25'
-          : 'bg-amber-500/15 text-amber-200 ring-amber-400/25',
+        isClass ? 'bg-violet-500/15 text-violet-200 ring-violet-400/25' : 'bg-amber-500/15 text-amber-200 ring-amber-400/25',
       ].join(' ')}
     >
       {isClass ? 'Classe' : 'Sous-classe'}
     </span>
   );
 }
-
-/* ———— Markdown léger avec support #### titres et ##### cases cochables ———— */
 
 type MarkdownCtx = {
   characterId?: string | null;
@@ -515,7 +669,6 @@ function parseMarkdownLite(
       continue;
     }
 
-    // ##### -> case à cocher persistante
     const h5chk = line.match(/^\s*#####\s+(.*)$/);
     if (h5chk) {
       const rawLabel = h5chk[1];
@@ -542,15 +695,10 @@ function parseMarkdownLite(
       continue;
     }
 
-    // #### -> petit titre, légèrement augmenté en casse (small-caps)
     const h4small = line.match(/^\s*####\s+(.*)$/);
     if (h4small) {
       out.push(
-        <h5
-          key={`h4s-${key++}`}
-          className="text-white font-semibold text-[13px]"
-          style={{ fontVariant: 'small-caps' }}
-        >
+        <h5 key={`h4s-${key++}`} className="text-white font-semibold text-[13px]" style={{ fontVariant: 'small-caps' }}>
           {formatInline(sentenceCase(h4small[1]))}
         </h5>
       );
@@ -558,7 +706,6 @@ function parseMarkdownLite(
       continue;
     }
 
-    // ### / ## / #
     const h3 = line.match(/^\s*###\s+(.*)$/);
     if (h3) {
       out.push(
@@ -590,7 +737,6 @@ function parseMarkdownLite(
       continue;
     }
 
-    // Table Markdown simple
     if (line.includes('|')) {
       const block: string[] = [];
       while (i < lines.length && lines[i].includes('|')) {
@@ -611,7 +757,6 @@ function parseMarkdownLite(
       continue;
     }
 
-    // Liste à puces
     if (/^\s*[-*]\s+/.test(line)) {
       const items: string[] = [];
       while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
@@ -630,7 +775,6 @@ function parseMarkdownLite(
       continue;
     }
 
-    // Liste ordonnée
     if (/^\s*\d+\.\s+/.test(line)) {
       const items: string[] = [];
       while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
@@ -649,7 +793,6 @@ function parseMarkdownLite(
       continue;
     }
 
-    // Paragraphe (agrège jusqu’à ligne de rupture)
     const buff: string[] = [line];
     i++;
     while (
@@ -712,19 +855,11 @@ function renderTable(block: string[], key: number): React.ReactNode | null {
   );
 }
 
-// Inline: **gras**, *italique* ou _italique_
 function formatInline(text: string): React.ReactNode[] {
   let parts: Array<string | React.ReactNode> = [text];
-
-  // Gras **...**
   parts = splitAndMap(parts, /\*\*([^*]+)\*\*/g, (m, i) => <strong key={`b-${i}`} className="text-white">{m[1]}</strong>);
-
-  // Italique *...*
   parts = splitAndMap(parts, /(^|[^*])\*([^*]+)\*(?!\*)/g, (m, i) => [m[1], <em key={`i-${i}`} className="italic">{m[2]}</em>]);
-
-  // Italique _..._
   parts = splitAndMap(parts, /_([^_]+)_/g, (m, i) => <em key={`u-${i}`} className="italic">{m[1]}</em>);
-
   return parts.map((p, i) => (typeof p === 'string' ? <React.Fragment key={`t-${i}`}>{p}</React.Fragment> : p));
 }
 
@@ -734,7 +869,6 @@ function splitAndMap(
   toNode: (m: RegExpExecArray, idx: number) => React.ReactNode | React.ReactNode[]
 ): Array<string | React.ReactNode> {
   const out: Array<string | React.ReactNode> = [];
-
   for (const part of parts) {
     if (typeof part !== 'string') {
       out.push(part);
@@ -744,7 +878,6 @@ function splitAndMap(
     let lastIndex = 0;
     let m: RegExpExecArray | null;
     const r = new RegExp(regex.source, regex.flags);
-
     while ((m = r.exec(str)) !== null) {
       out.push(str.slice(lastIndex, m.index));
       const node = toNode(m, out.length);
@@ -755,6 +888,426 @@ function splitAndMap(
     out.push(str.slice(lastIndex));
   }
   return out;
+}
+
+function ResourceEditModal({
+  label,
+  total,
+  onSave,
+  onCancel,
+}: {
+  label: string;
+  total: number;
+  onSave: (newTotal: number) => void;
+  onCancel: () => void;
+}) {
+  const [value, setValue] = useState<string>(total.toString());
+  const handleSave = () => {
+    const newValue = parseInt(value) || 0;
+    if (newValue >= 0) onSave(newValue);
+  };
+  return (
+    <div className="space-y-4">
+      <div>
+        <label className="block text-sm font-medium text-gray-300 mb-1">{label}</label>
+        <input type="number" min="0" value={value} onChange={(e) => setValue(e.target.value)} className="input-dark w-full px-3 py-2 rounded-md" />
+      </div>
+      <div className="flex gap-2">
+        <button onClick={handleSave} className="btn-primary flex-1 px-4 py-2 rounded-lg flex items-center justify-center gap-2">
+          <Save size={16} />
+          Sauvegarder
+        </button>
+        <button onClick={onCancel} className="btn-secondary px-4 py-2 rounded-lg flex items-center justify-center gap-2">
+          <X size={16} />
+          Annuler
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ResourceBlock({
+  icon,
+  label,
+  total,
+  used,
+  onUse,
+  onRestore,
+  onUpdateTotal,
+  onUpdateUsed,
+  useNumericInput = false,
+  color = 'purple',
+  onDelete,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  total: number;
+  used: number;
+  onUse: () => void;
+  onRestore: () => void;
+  onUpdateTotal: (newTotal: number) => void;
+  onUpdateUsed?: (value: number) => void;
+  useNumericInput?: boolean;
+  color?: 'red' | 'purple' | 'yellow' | 'green' | 'blue';
+  onDelete?: () => void;
+}) {
+  const remaining = Math.max(0, total - used);
+  const [isEditing, setIsEditing] = useState(false);
+  const [amount, setAmount] = useState<string>('');
+
+  const colorClasses = {
+    red: 'text-red-500 hover:bg-red-900/30',
+    purple: 'text-purple-500 hover:bg-purple-900/30',
+    yellow: 'text-yellow-500 hover:bg-yellow-900/30',
+    green: 'text-green-500 hover:bg-green-900/30',
+    blue: 'text-blue-500 hover:bg-blue-900/30',
+  };
+
+  return (
+    <div className="resource-block bg-gradient-to-br from-gray-800/50 to-gray-900/30 border border-gray-700/30 rounded-lg p-3">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-3">
+          <div className={`${colorClasses[color]}`}>{icon}</div>
+          <span className="text-sm font-medium text-gray-300">{label}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-md min-w-[64px] text-center">
+            {remaining}/{total}
+          </div>
+          <button
+            onClick={() => setIsEditing(true)}
+            className="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-blue-500 hover:bg-blue-900/30 rounded-full transition-colors"
+            title="Modifier"
+          >
+            <Settings size={16} />
+          </button>
+          {onDelete && (
+            <button
+              onClick={onDelete}
+              className="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-red-500 hover:bg-red-900/30 rounded-full transition-colors"
+              title="Supprimer"
+            >
+              <Trash2 size={16} />
+            </button>
+          )}
+        </div>
+      </div>
+
+      {useNumericInput ? (
+        <div className="flex-1 flex items-center gap-1">
+          <input type="number" min="0" value={amount} onChange={(e) => setAmount(e.target.value)} className="input-dark flex-1 px-3 py-1 rounded-md text-center" placeholder="0" />
+          <button
+            onClick={() => {
+              const value = parseInt(amount) || 0;
+              if (value > 0) {
+                onUpdateUsed?.(used + value);
+                setAmount('');
+              }
+            }}
+            className="p-1 text-red-500 hover:bg-red-900/30 rounded-md transition-colors"
+            title="Dépenser"
+          >
+            <Minus size={18} />
+          </button>
+          <button
+            onClick={() => {
+              const value = parseInt(amount) || 0;
+              if (value > 0) {
+                onUpdateUsed?.(Math.max(0, used - value));
+                setAmount('');
+              }
+            }}
+            className="p-1 text-green-500 hover:bg-green-900/30 rounded-md transition-colors"
+            title="Récupérer"
+          >
+            <Plus size={18} />
+          </button>
+        </div>
+      ) : (
+        <div className="flex gap-2">
+          <button
+            onClick={onUse}
+            disabled={remaining <= 0}
+            className={`flex-1 h-8 flex items-center justify-center rounded-md transition-colors ${
+              remaining > 0 ? colorClasses[color] : 'text-gray-600 bg-gray-800/50 cursor-not-allowed'
+            }`}
+          >
+            <Minus size={16} className="mx-auto" />
+          </button>
+          <button
+            onClick={onRestore}
+            disabled={used <= 0}
+            className={`flex-1 h-8 flex items-center justify-center rounded-md transition-colors ${
+              used > 0 ? colorClasses[color] : 'text-gray-600 bg-gray-800/50 cursor-not-allowed'
+            }`}
+          >
+            <Plus size={16} className="mx-auto" />
+          </button>
+        </div>
+      )}
+
+      {isEditing && (
+        <div className="mt-4 border-t border-gray-700/50 pt-4">
+          <ResourceEditModal
+            label={`Nombre total de ${label.toLowerCase()}`}
+            total={total}
+            onSave={(newTotal) => {
+              onRestore();
+              onUpdateTotal(newTotal);
+              setIsEditing(false);
+            }}
+            onCancel={() => setIsEditing(false)}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ClassResourcesCard({
+  playerClass,
+  resources,
+  onUpdateResource,
+  player,
+  level,
+}: {
+  playerClass: string;
+  resources?: ClassResources;
+  onUpdateResource: (resource: keyof ClassResources, value: any) => void;
+  player?: PlayerLike;
+  level?: number;
+}) {
+  if (!resources || !playerClass) return null;
+
+  const cls = canonicalClass(playerClass);
+  const items: React.ReactNode[] = [];
+
+  switch (cls) {
+    case 'Barbare':
+      if (typeof resources.rage === 'number') {
+        items.push(
+          <ResourceBlock
+            key="rage"
+            icon={<Flame size={20} />}
+            label="Rage"
+            total={resources.rage}
+            used={resources.used_rage || 0}
+            onUse={() => onUpdateResource('used_rage', (resources.used_rage || 0) + 1)}
+            onUpdateTotal={(n) => onUpdateResource('rage', n)}
+            onRestore={() => onUpdateResource('used_rage', Math.max(0, (resources.used_rage || 0) - 1))}
+            color="red"
+          />
+        );
+      }
+      break;
+
+    case 'Barde': {
+      if (typeof resources.bardic_inspiration === 'number') {
+        const chaCap = Math.max(1, getChaModFromPlayerLike(player));
+        items.push(
+          <ResourceBlock
+            key="bardic_inspiration"
+            icon={<Music size={20} />}
+            label="Inspiration bardique"
+            total={Math.min(resources.bardic_inspiration, chaCap)}
+            used={Math.min(resources.used_bardic_inspiration || 0, Math.min(resources.bardic_inspiration, chaCap))}
+            onUse={() => onUpdateResource('used_bardic_inspiration', Math.min((resources.used_bardic_inspiration || 0) + 1, chaCap))}
+            onUpdateTotal={(n) => {
+              const newTotal = Math.min(Math.max(1, n), chaCap);
+              onUpdateResource('bardic_inspiration', newTotal);
+              if ((resources.used_bardic_inspiration || 0) > newTotal) {
+                onUpdateResource('used_bardic_inspiration', newTotal);
+              }
+            }}
+            onRestore={() => onUpdateResource('used_bardic_inspiration', Math.max(0, (resources.used_bardic_inspiration || 0) - 1))}
+            color="purple"
+          />
+        );
+      }
+      break;
+    }
+
+    case 'Clerc':
+      if (typeof resources.channel_divinity === 'number') {
+        items.push(
+          <ResourceBlock
+            key="channel_divinity"
+            icon={<Cross size={20} />}
+            label="Conduit divin"
+            total={resources.channel_divinity}
+            used={resources.used_channel_divinity || 0}
+            onUse={() => onUpdateResource('used_channel_divinity', (resources.used_channel_divinity || 0) + 1)}
+            onUpdateTotal={(n) => onUpdateResource('channel_divinity', n)}
+            onRestore={() => onUpdateResource('used_channel_divinity', Math.max(0, (resources.used_channel_divinity || 0) - 1))}
+            color="yellow"
+          />
+        );
+      }
+      break;
+
+    case 'Druide':
+      if (typeof resources.wild_shape === 'number') {
+        items.push(
+          <ResourceBlock
+            key="wild_shape"
+            icon={<Leaf size={20} />}
+            label="Forme sauvage"
+            total={resources.wild_shape}
+            used={resources.used_wild_shape || 0}
+            onUse={() => onUpdateResource('used_wild_shape', (resources.used_wild_shape || 0) + 1)}
+            onUpdateTotal={(n) => onUpdateResource('wild_shape', n)}
+            onRestore={() => onUpdateResource('used_wild_shape', Math.max(0, (resources.used_wild_shape || 0) - 1))}
+            color="green"
+          />
+        );
+      }
+      break;
+
+    case 'Ensorceleur':
+      if (typeof resources.sorcery_points === 'number') {
+        items.push(
+          <ResourceBlock
+            key="sorcery_points"
+            icon={<Wand2 size={20} />}
+            label="Points de sorcellerie"
+            total={resources.sorcery_points}
+            used={resources.used_sorcery_points || 0}
+            onUse={() => onUpdateResource('used_sorcery_points', (resources.used_sorcery_points || 0) + 1)}
+            onUpdateTotal={(n) => onUpdateResource('sorcery_points', n)}
+            onRestore={() => onUpdateResource('used_sorcery_points', Math.max(0, (resources.used_sorcery_points || 0) - 1))}
+            color="purple"
+          />
+        );
+      }
+      break;
+
+    case 'Guerrier':
+      if (typeof resources.action_surge === 'number') {
+        items.push(
+          <ResourceBlock
+            key="action_surge"
+            icon={<Swords size={20} />}
+            label="Sursaut d'action"
+            total={resources.action_surge}
+            used={resources.used_action_surge || 0}
+            onUse={() => onUpdateResource('used_action_surge', (resources.used_action_surge || 0) + 1)}
+            onUpdateTotal={(n) => onUpdateResource('action_surge', n)}
+            onRestore={() => onUpdateResource('used_action_surge', Math.max(0, (resources.used_action_surge || 0) - 1))}
+            color="red"
+          />
+        );
+      }
+      break;
+
+    case 'Magicien':
+      if (resources.arcane_recovery !== undefined) {
+        items.push(
+          <div key="arcane_recovery" className="resource-block bg-gradient-to-br from-gray-800/50 to-gray-900/30 border border-gray-700/30 rounded-lg p-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <BookOpen size={20} className="text-blue-500" />
+                <span className="text-sm font-medium text-gray-300">Récupération arcanique</span>
+              </div>
+              <button
+                onClick={() => onUpdateResource('used_arcane_recovery', !resources.used_arcane_recovery)}
+                className={`h-8 px-3 flex items-center justify-center rounded-md transition-colors ${
+                  resources.used_arcane_recovery ? 'bg-gray-800/50 text-gray-500' : 'text-blue-500 hover:bg-blue-900/30'
+                }`}
+              >
+                {resources.used_arcane_recovery ? 'Utilisé' : 'Disponible'}
+              </button>
+            </div>
+          </div>
+        );
+      }
+      break;
+
+    case 'Moine': {
+      const total = (resources as any).credo_points ?? (resources as any).ki_points;
+      const used = (resources as any).used_credo_points ?? (resources as any).used_ki_points ?? 0;
+
+      if (typeof total === 'number') {
+        items.push(
+          <ResourceBlock
+            key="credo_points"
+            icon={<Footprints size={20} />}
+            label="Points de crédo"
+            total={total}
+            used={used}
+            onUse={() => onUpdateResource('used_credo_points', used + 1)}
+            onUpdateTotal={(n) => onUpdateResource('credo_points', n)}
+            onRestore={() => onUpdateResource('used_credo_points', Math.max(0, used - 1))}
+            color="blue"
+          />
+        );
+      }
+      break;
+    }
+
+    case 'Paladin':
+      if (typeof resources.lay_on_hands === 'number') {
+        items.push(
+          <ResourceBlock
+            key="lay_on_hands"
+            icon={<HandHeart size={20} />}
+            label="Imposition des mains"
+            total={resources.lay_on_hands}
+            used={resources.used_lay_on_hands || 0}
+            onUpdateTotal={(n) => onUpdateResource('lay_on_hands', n)}
+            onUpdateUsed={(v) => onUpdateResource('used_lay_on_hands', v)}
+            color="yellow"
+            useNumericInput
+          />
+        );
+      }
+      break;
+
+    case 'Rôdeur':
+      if (typeof resources.favored_foe === 'number') {
+        items.push(
+          <ResourceBlock
+            key="favored_foe"
+            icon={<Target size={20} />}
+            label="Ennemi juré"
+            total={resources.favored_foe}
+            used={resources.used_favored_foe || 0}
+            onUse={() => onUpdateResource('used_favored_foe', (resources.used_favored_foe || 0) + 1)}
+            onUpdateTotal={(n) => onUpdateResource('favored_foe', n)}
+            onRestore={() => onUpdateResource('used_favored_foe', Math.max(0, (resources.used_favored_foe || 0) - 1))}
+            color="green"
+          />
+        );
+      }
+      break;
+
+    case 'Roublard':
+      if (resources.sneak_attack) {
+        items.push(
+          <div key="sneak_attack" className="resource-block bg-gradient-to-br from-gray-800/50 to-gray-900/30 border border-gray-700/30 rounded-lg p-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Skull size={20} className="text-red-500" />
+                <span className="text-sm font-medium text-gray-300">Attaque sournoise</span>
+              </div>
+              <div className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-md">{resources.sneak_attack}</div>
+            </div>
+          </div>
+        );
+      }
+      break;
+  }
+
+  if (!items.length) return null;
+
+  return (
+    <div className="stats-card">
+      <div className="stat-header flex items-center gap-3">
+        <Sparkles className="w-5 h-5 text-yellow-500" />
+        <h3 className="text-lg font-semibold text-gray-100">Ressources de classe</h3>
+      </div>
+      <div className="p-4 space-y-4">{items}</div>
+    </div>
+  );
 }
 
 export default ClassesTab;
