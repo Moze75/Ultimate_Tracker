@@ -51,7 +51,7 @@ Vous ne pouvez appliquer qu’une option de Métamagie à l’incantation d’un
 
 Chaque fois que vous gagnez un niveau d’Ensorceleur, vous pouvez remplacer l’une de vos options de Métamagie par une option qui vous est inconnue. Vous recevez deux options supplémentaires au niveau 10 d’Ensorceleur et deux de plus au niveau 17.
 
-#### Options de Métamagie
+Options de Métamagie
 
 Les options ci-après sont disponibles pour votre aptitude **Métamagie**. Elles sont présentées par ordre alphabétique.
 
