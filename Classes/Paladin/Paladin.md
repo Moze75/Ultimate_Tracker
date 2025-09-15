@@ -61,7 +61,7 @@ Vous recevez le don de Style de combat de votre choix (cf. chapitre 5 pour la li
 
 ### Niveau 3 : Conduit divin
 
-Vous pouvez canaliser l’énergie divine directement depuis les Plans Extérieurs afin de produire des effets magiques. Vous débutez avec un seul de ces effets : _Perception divine, décrire ci-après._ D’autres aptitudes de Paladin octroient des effets supplémentaires de Conduit divin. Chaque fois que vous recourez au Conduit divin de cette façon, vous choisissez l’effet associé que vous souhaitez générer.
+Vous pouvez canaliser l’énergie divine directement depuis les Plans Extérieurs afin de produire des effets magiques. Vous débutez avec un seul de ces effets : _Perception divine, décrite ci-après._ D’autres aptitudes de Paladin octroient des effets supplémentaires de Conduit divin. Chaque fois que vous recourez au Conduit divin de cette façon, vous choisissez l’effet associé que vous souhaitez générer.
 Vous pouvez utiliser deux fois le Conduit divin de cette classe. Vous regagnez une utilisation lorsque vous terminez un Repos court, et récupérez toutes ses utilisations en terminant un Repos long. Vous recevez une utilisation supplémentaire en atteignant le niveau 18 de Paladin.  
 Si un effet du Conduit divin entraîne un jet de sauvegarde, le DD est égal au DD de sauvegarde des sorts de l’aptitude Sorts de cette classe.
 
