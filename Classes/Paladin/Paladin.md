@@ -3,28 +3,28 @@
 
 Votre entraînement martial vous permet de recourir à la propriété Botte de deux types d’arme de votre choix parmi celles dont vous avez la maîtrise, par exemple l’épée longue et la javeline. Chaque fois que vous terminez un Repos long, vous pouvez changer le type d’arme que vous avez choisi. Vous pourriez par exemple décider d’opter pour les propriétés Bottes de la hallebarde et du fléau d’armes.Les bottes disponibles sont décrites ci-dessous :
 
-**Entaille**
+**Entaille** :
 Si vous touchez une créature avec une attaque au corps à corps, vous pouvez effectuer une attaque supplémentaire contre une deuxième cible à 1,50 m (5 ft). Les dégâts sont ceux de l’arme sans modificateur de capacité (sauf s’il est négatif). Une utilisation par tour.
 
-**Érafler**
+**Érafler** :
 Si votre attaque manque la cible, vous infligez néanmoins des dégâts égaux à votre modificateur de capacité utilisé pour l’attaque. 
 
-**Entailler**
+**Entailler** :
 Lorsque vous attaquez avec une arme légère, vous pouvez faire cette attaque supplémentaire pendant votre action d’attaque, sans recourir à une action bonus — ce qui libère cette dernière pour d’autres usages.
 
-**Pousser**
+**Pousser** :
 Après avoir touché une créature, vous pouvez la repousser de 3 m (10 ft) en ligne droite.
 
-**Affaiblir**
+**Affaiblir** :
 Si vous touchez une créature, elle subit un désavantage à son prochain jet d’attaque avant le début de votre prochain tour. 
 
-**Ralentir**
+**Ralentir** :
 Lorsque vous touchez et infligez des dégâts avec cette arme, vous pouvez réduire la vitesse de la créature de 3 m (10 ft) jusqu’au début de votre prochain tour.
 
-**Renverser**
+**Renverser** :
 Si vous touchez une créature, vous pouvez l’obliger à effectuer un jet de sauvegarde de Constitution (DD = 8 + modificateur de capacité utilisé + votre bonus de maîtrise). En cas d’échec, elle est renversée (Prone). 
 
-**Provoquer**
+**Provoquer** :
 Si vous touchez une créature et lui infligez des dégâts, vous bénéficiez d’un avantage sur votre prochain jet d’attaque contre cette cible avant la fin de votre prochain tour.
 
 ### Niveau 1 : Imposition des mains
