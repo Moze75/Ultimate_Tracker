@@ -33,7 +33,7 @@ Vous en apprendrez d'autres que vous choisirez à plus haut niveau, comme le mon
 
 Vous ne pouvez pas choisir la même manifestation plus d'une fois, sauf si sa description précise le contraire.
 
-#### OPTIONS DE MANIFESTATION OCCULTE
+**OPTIONS DE MANIFESTATION OCCULTE**
 
 Les options de Manifestation occulte sont listées par ordre alphabétique.
 
