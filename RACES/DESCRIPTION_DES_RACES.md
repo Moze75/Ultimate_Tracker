@@ -43,7 +43,7 @@ En tant que drakéide, vous disposez des traits spéciaux suivants.
 
 **Ascendance draconique.** Votre lignée remonte à un géniteur dragon. Choisissez le type de dragon dans la table **Ancêtres draconiques**. Ce choix affecte vos traits Souffle et Résistance aux dégâts, ainsi que votre apparence.
 
-[
+||
 **ANCÊTRES DRACONIQUES**  
 Airain – Feu  
 Argent – Froid  
@@ -55,7 +55,7 @@ Noir – Acide
 Or – Feu  
 Rouge – Feu  
 Vert – Poison
-]
+||
 
 **Résistance aux dégâts.** Vous bénéficiez de la Résistance au type de dégâts déterminé par votre trait Ascendance draconique.
 
@@ -164,29 +164,29 @@ En tant qu’elfe, vous disposez des traits spéciaux suivants :
 
 **Lignage elfique**. Au choix 
 
-[
+||
 Drow :
 
 Niveau 1 : Vision dans le noir portée à 36 m. Vous connaissez le sort mineur _lumières dansantes_.  
 Niveau 3 : _lueurs féeriques_  
 Niveau 5 : _ténèbres_
-]
+||
 
-[
+||
 Haut elfe :
 
 Niveau 1 : Vous connaissez le sort mineur _prestidigitation_. Chaque fois que vous terminez un repos long, vous pouvez remplacer ce sort mineur par un autre de la liste des sorts du magicien.  
 Niveau 3 : _détection de la magie_  
 Niveau 5 : foulée brumeuse
-]
+||
 
-[
+||
 Elfe sylvestre :
 
 Niveau 1 : Votre vitesse passe à 10,50 m. Vous connaissez le sort mineur _druidisme_.  
 Niveau 3 : _grande foulée_  
 Niveau 5 : passage sans trace
-]
+||
 
 **Sens aiguisés**. Vous bénéficiez de la maîtrise de la compétence Intuition, Perception ou Survie (au choix).
 
