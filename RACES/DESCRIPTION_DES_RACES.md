@@ -164,7 +164,7 @@ En tant qu’elfe, vous disposez des traits spéciaux suivants :
 
 **Lignage elfique**. Au choix 
 
-<!-- /BOX -->
+<!-- BOX -->
 Drow :
 
 Niveau 1 : Vision dans le noir portée à 36 m. Vous connaissez le sort mineur _lumières dansantes_.  
@@ -172,7 +172,7 @@ Niveau 3 : _lueurs féeriques_
 Niveau 5 : _ténèbres_
 <!-- /BOX -->
 
-<!-- /BOX -->
+<!-- BOX -->
 Haut elfe :
 
 Niveau 1 : Vous connaissez le sort mineur _prestidigitation_. Chaque fois que vous terminez un repos long, vous pouvez remplacer ce sort mineur par un autre de la liste des sorts du magicien.  
@@ -180,7 +180,7 @@ Niveau 3 : _détection de la magie_
 Niveau 5 : foulée brumeuse
 <!-- /BOX -->
 
-<!-- /BOX -->
+<!-- BOX -->
 Elfe sylvestre :
 
 Niveau 1 : Votre vitesse passe à 10,50 m. Vous connaissez le sort mineur _druidisme_.  
