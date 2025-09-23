@@ -8,8 +8,6 @@
 
 **Vitesse.** 9 m
 
-En tant qu’aasimar, vous disposez des traits spéciaux suivants.
-
 **Mains guérisseuses.** Au prix de l’action Magie, vous touchez physiquement une créature et jetez autant de d4 que votre bonus de maîtrise. La créature récupère autant de points de vie que le total obtenu. Une fois que vous avez utilisé ce trait, vous devez terminer un repos long pour pouvoir y recourir de nouveau.
 
 **Porte-lumière.** Vous connaissez le sort mineur _lumière_. Le Charisme est la caractéristique d’incantation associée.
@@ -38,8 +36,6 @@ Voici vos options de transformation :
 **Catégorie de taille.** M (moyenne, entre 1,50 m et 2,15 m)
 
 **Vitesse.** 9 m
-
-En tant que drakéide, vous disposez des traits spéciaux suivants.
 
 **Ascendance draconique.** Votre lignée remonte à un géniteur dragon. Choisissez le type de dragon dans la table **Ancêtres draconiques**. Ce choix affecte vos traits Souffle et Résistance aux dégâts, ainsi que votre apparence.
 
@@ -74,8 +70,6 @@ Les dégâts augmentent de 1d10 lorsque vous atteignez les niveaux de personnage
 **Catégorie de taille** : M (moyenne, entre 1,50 m et 1,85 m)  
 **Vitesse** : 9 m
 
-En tant qu’elfe, vous disposez des traits spéciaux suivants :
-
 **Ascendance féerique**. Vous avez l’avantage aux jets de sauvegarde visant à éviter l’état Charmé ou à y mettre un terme.
 
 **Lignage elfique**. Elfe sylvestre 
@@ -103,8 +97,6 @@ Ces sorts sont toujours considérés comme préparés pour vous. Vous pouvez les
 **Catégorie de taille** : M (moyenne, entre 1,50 m et 1,85 m)  
 **Vitesse** : 9 m
 
-En tant qu’elfe, vous disposez des traits spéciaux suivants :
-
 **Ascendance féerique**. Vous avez l’avantage aux jets de sauvegarde visant à éviter l’état Charmé ou à y mettre un terme.
 
 **Lignage elfique**. Haut elfe
@@ -131,8 +123,6 @@ Ces sorts sont toujours considérés comme préparés pour vous. Vous pouvez les
 **Catégorie de taille** : M (moyenne, entre 1,50 m et 1,85 m)  
 **Vitesse** : 9 m
 
-En tant qu’elfe, vous disposez des traits spéciaux suivants :
-
 **Ascendance féerique**. Vous avez l’avantage aux jets de sauvegarde visant à éviter l’état Charmé ou à y mettre un terme.
 
 **Lignage elfique**. Drow
@@ -158,8 +148,6 @@ Ces sorts sont toujours considérés comme préparés pour vous. Vous pouvez les
 **Catégorie de taille** : M (moyenne, entre 1,50 m et 1,85 m)  
 **Vitesse** : 9 m
 
-En tant qu’elfe, vous disposez des traits spéciaux suivants :
-
 **Ascendance féerique**. Vous avez l’avantage aux jets de sauvegarde visant à éviter l’état Charmé ou à y mettre un terme.
 
 **Lignage elfique**. Au choix 
@@ -177,7 +165,7 @@ Haut elfe :
 
 Niveau 1 : Vous connaissez le sort mineur _prestidigitation_. Chaque fois que vous terminez un repos long, vous pouvez remplacer ce sort mineur par un autre de la liste des sorts du magicien.  
 Niveau 3 : _détection de la magie_  
-Niveau 5 : foulée brumeuse
+Niveau 5 : _foulée brumeuse_
 <!-- /BOX -->
 
 <!-- BOX -->
@@ -185,7 +173,7 @@ Elfe sylvestre :
 
 Niveau 1 : Votre vitesse passe à 10,50 m. Vous connaissez le sort mineur _druidisme_.  
 Niveau 3 : _grande foulée_  
-Niveau 5 : passage sans trace
+Niveau 5 : _passage sans trace_
 <!-- /BOX -->
 
 **Sens aiguisés**. Vous bénéficiez de la maîtrise de la compétence Intuition, Perception ou Survie (au choix).
@@ -203,8 +191,6 @@ Niveau 5 : passage sans trace
 **Catégorie de taille** : M (moyenne, entre 1,20 m et 2,15 m) ou P (petite, de 60 cm à 1,20 m), à choisir lors de la sélection de l’espèce
 **Vitesse** : 9 m
 
-En tant qu’humain, vous disposez des traits spéciaux suivants :
-
 **Compétent**. Vous recevez la maîtrise d’une compétence de votre choix.
 
 **Ingénieux**. Vous recevez l’inspiration héroïque chaque fois que vous terminez un repos long.
@@ -217,8 +203,6 @@ En tant qu’humain, vous disposez des traits spéciaux suivants :
 **Type de créature** : Humanoïde  
 **Catégorie de taille** : P (petite, entre 90 cm et 1,20 m)  
 **Vitesse** : 9 m
-
-En tant que gnome, vous disposez des traits spéciaux suivants :
 
 **Lignage gnome**. Vous appartenez à un lignage qui vous octroie des aptitudes surnaturelles. Choisissez l’une des options ci-après ; quelle que soit celle que vous choisissez, l’Intelligence, la Sagesse ou le Charisme est votre caractéristique d’incantation pour les sorts que vous lancez avec ce trait (décidez de la caractéristique lors de la sélection du lignage).
 
@@ -240,8 +224,6 @@ Vous disposez de la vision dans le noir sur 18 m.
 **Type de créature** : Humanoïde  
 **Catégorie de taille** : M (moyenne, entre 2,15 m et 2,45 m)  
 **Vitesse** : 10,50 m
-
-En tant que goliath, vous disposez des traits spéciaux suivants :
 
 **Ascendance gigantesque**. Vous êtes un lointain descendant des géants. Choisissez l’un des bénéfices ci-après, une faveur surnaturelle liée à vos ancêtres. Vous pouvez recourir à ce bénéfice un nombre de fois égal à votre bonus de maîtrise et vous récupérez ce quota en terminant un repos long :
 
@@ -267,8 +249,6 @@ En tant que goliath, vous disposez des traits spéciaux suivants :
 **Catégorie de taille** : P (petite, entre 60 cm et 90 cm)  
 **Vitesse** : 9 m
 
-En tant que halfelin, vous disposez des traits spéciaux suivants :
-
 **Agilité halfeline**. Vous pouvez vous déplacer dans l’espace de toute créature d’une catégorie de taille supérieure à la vôtre, mais vous ne pouvez pas vous arrêter dans le même espace que celle-ci.
 
 **Brave**. Vous avez l’avantage aux jets de sauvegarde visant à éviter l’état Effrayé ou à y mettre un terme.
@@ -285,8 +265,6 @@ En tant que halfelin, vous disposez des traits spéciaux suivants :
 **Catégorie de taille** : M (moyenne, entre 1,20 m et 1,50 m)  
 **Vitesse** : 9 m
 
-En tant que nain, vous disposez des traits spéciaux suivants :
-
 **Connaissance de la pierre**. Par une action bonus, vous obtenez la Perception des vibrations dans un rayon de 18 m pendant 10 minutes. Cette perception nécessite que vous soyez sur une surface en pierre ou en contact physique avec une telle surface, qu’elle soit naturelle ou façonnée. Vous pouvez recourir à cette action bonus un nombre de fois égal à votre bonus de maîtrise, et vous récupérez toutes les utilisations dépensées à l’issue d’un repos long.
 
 **Résistance naine**. Vous bénéficiez de la résistance aux dégâts de poison. De plus, vous avez l’avantage aux jets de sauvegarde visant à éviter l’état Empoisonné ou à y mettre un terme sur vous-même.
@@ -302,8 +280,6 @@ En tant que nain, vous disposez des traits spéciaux suivants :
 **Catégorie de taille** : M (moyenne, entre 1,80 m et 2,15 m)  
 **Vitesse** : 9 m
 
-En tant qu’orc, vous disposez des traits spéciaux suivants :
-
 **Acharnement**. Si vous tombez à 0 point de vie sans être tué sur le coup, vous pouvez vous retrouver à 1 point de vie. Une fois ce trait utilisé, vous devez terminer un repos long pour pouvoir y recourir de nouveau.
 
 **Poussée d’adrénaline**. Vous pouvez entreprendre l’action Pointe par une action bonus. Lorsque vous le faites, vous recevez un nombre de points de vie temporaires égal à votre bonus de maîtrise. Vous pouvez recourir à ce trait un nombre de fois égal à votre bonus de maîtrise, et vous récupérez toutes les utilisations dépensées à l’issue d’un repos court ou long.
@@ -318,8 +294,6 @@ En tant qu’orc, vous disposez des traits spéciaux suivants :
 **Catégorie de taille** : M (moyenne, entre 1,80 m et 2,15 m)  
 **Vitesse** : 9 m
 
-En tant que demi-orc, vous disposez des traits spéciaux suivants :
-
 **Acharnement**. Si vous tombez à 0 point de vie sans être tué sur le coup, vous pouvez vous retrouver à 1 point de vie. Une fois ce trait utilisé, vous devez terminer un repos long pour pouvoir y recourir de nouveau.
 
 **Ingénieux**. Vous recevez l’inspiration héroïque chaque fois que vous terminez un repos long.
@@ -333,8 +307,6 @@ En tant que demi-orc, vous disposez des traits spéciaux suivants :
 **Type de créature** : Humanoïde  
 **Catégorie de taille** : M (moyenne, entre 1,20 m et 2,15 m) ou P (petite, de 90 cm à 1,20 m), à choisir lors de la sélection de l’espèce  
 **Vitesse** : 9 m
-
-En tant que tieffelin, vous disposez des traits spéciaux suivants :
 
 **Héritage fiélon**. Votre héritage vous octroie des aptitudes surnaturelles. Choisissez un héritage dans la table _Héritages fiélons_. Vous recevez le bénéfice de niveau 1 de l’héritage choisi. Lorsque vous atteignez les niveaux de personnage 3 et 5, vous apprenez un sort de niveau supérieur, comme indiqué sur la table. Ce sort est toujours considéré comme préparé pour vous. Vous pouvez le lancer une fois sans dépenser d’emplacement de sort et récupérez cette aptitude en terminant un repos long. Vous pouvez également le lancer avec vos emplacements de sort de niveau approprié. L’Intelligence, la Sagesse ou le Charisme est votre caractéristique d’incantation pour les sorts que vous lancez avec ce trait (décidez de la caractéristique lors de la sélection de l’héritage).
 
