@@ -1,6 +1,4 @@
 
-Voici la transcription :
-
 ### NIVEAU 3 : ARTISTE DES OMBRES
 
 Vous avez appris à puiser dans le pouvoir de la Gisombre, ce qui vous confère les bénéfices suivants.
