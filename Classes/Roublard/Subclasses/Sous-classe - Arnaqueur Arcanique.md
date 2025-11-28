@@ -5,7 +5,7 @@ Lorsque vous lancez _main du mage_, vous pouvez la lancer par une action Bonus e
 
 ### Niveau 3 : Sorts
 
-Vous avez appris à lancer des sorts. Reportez-vous au chapitre 7 pour les règles d'incantation. Les informations ci-après détaillent la façon d'utiliser ces règles en tant qu'Arnaqueur arcanique.
+Vous avez appris à lancer des sorts.
 
 **Sorts mineurs.** Vous connaissez trois sorts mineurs : _main du mage_ et deux autres sorts mineurs de votre choix dans la liste des sorts de Magicien (cf. la section de cette classe). _Piqûre mentale_ et _illusion mineure_ sont recommandés.
 
