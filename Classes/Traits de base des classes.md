@@ -24,11 +24,11 @@
 
 **Maîtrise des jets de sauvegarde** : Dextérité et Charisme
 
-**Maîtrises de compétence** : 3 compétences au choix (cf. chapitre 1)
+**Maîtrises de compétence** : 3 compétences au choix 
 
 **Maîtrises d'arme** : Armes courantes
 
-**Maîtrises d'outils** : 3 instruments de musique au choix (cf. chapitre 6)
+**Maîtrises d'outils** : 3 instruments de musique au choix
 
 **Formation aux armures** : Armures légères
 
