@@ -35,7 +35,7 @@ Vous pouvez également dépenser 5 points de vie de la réserve de puissance cur
 
 ### Niveau 1 : Sorts
 
-Vous avez appris à lancer des sorts grâce à la prière et à la méditation. Reportez-vous au chapitre 7 pour les règles d’incantation. Les informations ci-après expliquent comment utiliser ces règles avec les sorts de Paladin, qui figurent dans la liste Sorts de Paladin, plus loin dans le descriptif de la classe.  
+Vous avez appris à lancer des sorts grâce à la prière et à la méditation.  
 Emplacements de sort. La table Aptitudes du Paladin vous indique le nombre d’emplacements de sort dont vous disposez pour lancer vos sorts du 1er niveau et supérieur. Vous récupérez tous les emplacements dépensés en terminant un Repos long.  
 Sorts préparés du 1er niveau et plus. Vous devez préparer la liste des sorts du 1er niveau et supérieur que cette aptitude vous permet de lancer. Pour commencer, choisissez deux sorts du 1er niveau du Paladin. _Héroïsme_ et _châtiment de foudre_ sont recommandés.
 
@@ -56,7 +56,7 @@ Le sort _châtiment divin_ est toujours préparé pour vous. Vous pouvez en outr
 
 ### Niveau 2 : Style de combat
 
-Vous recevez le don de Style de combat de votre choix (cf. chapitre 5 pour la liste des dons). Au lieu de choisir l’un de ces dons, vous pouvez choisir l’option ci-dessous.  
+Vous recevez le don de Style de combat de votre choix. Au lieu de choisir l’un de ces dons, vous pouvez choisir l’option ci-dessous.  
 **Combattant béni.** Vous apprenez deux sorts mineurs de Clerc de votre choix (la liste des sorts de Clerc est consultable dans la section de cette classe). _Assistance_ et _flamme sacrée_ sont recommandés. Les sorts mineurs choisis sont considérés pour vous comme des sorts de Paladin, et le Charisme est la caractéristique d’incantation associée. Chaque fois que vous gagnez un niveau de Paladin, vous pouvez remplacer l’un de ces sorts mineurs par un autre sort mineur de Clerc.
 
 ### Niveau 3 : Conduit divin
@@ -73,7 +73,7 @@ Vous recevez la sous-classe de Paladin de votre choix. Les sous-classes Serment 
 
 ### Niveau 4 : Amélioration de caractéristique
 
-Vous recevez 1 don Amélioration de caractéristique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Paladin 8, 12 et 16.
+Vous recevez 1 don Amélioration de caractéristique ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Paladin 8, 12 et 16.
 
 ### Niveau 5 : Attaque supplémentaire
 
