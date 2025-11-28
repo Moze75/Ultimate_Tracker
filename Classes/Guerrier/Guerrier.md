@@ -16,7 +16,7 @@ Lorsque vous atteignez certains niveaux de Guerrier, vous recevez d’autres uti
 
 ### NIVEAU 1 : STYLE DE COMBAT
 
-Vous avez affûté vos techniques martiales et recevez le don de Style de combat de votre choix (cf. chapitre 5). Défense est recommandé.
+Vous avez affûté vos techniques martiales et recevez le don de Style de combat de votre choix. Défense est recommandé.
 
 Chaque fois que vous recevez un niveau de Guerrier, vous pouvez remplacer le don choisi par un don différent de Style de combat.
 
@@ -39,7 +39,7 @@ Vous recevez la sous-classe de Guerrier de votre choix. Les sous-classes Champio
 
 ### NIVEAU 4 : AMÉLIORATION DE CARACTÉRISTIQUE
 
-Vous recevez le don Amélioration de caractéristique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Guerrier 6, 8, 12, 14 et 16.
+Vous recevez le don Amélioration de caractéristique ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Guerrier 6, 8, 12, 14 et 16.
 
 ### NIVEAU 5 : ATTAQUE SUPPLÉMENTAIRE
 
