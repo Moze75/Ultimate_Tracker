@@ -1,7 +1,7 @@
 
 ### Niveau 1 : Sorts
 
-C’est en puisant dans votre **magie innée** que vous lancez vos sorts. Reportez-vous au **chapitre 7** pour les règles générales d’incantation. Les informations ci-après expliquent comment utiliser ces règles avec les sorts d’Ensorceleur, qui figurent dans la **liste des sorts d’Ensorceleur**, plus loin dans la description de cette classe.
+C’est en puisant dans votre **magie innée** que vous lancez vos sorts. 
 
 **Sorts mineurs.**  
 Vous connaissez **quatre sorts mineurs d’Ensorceleur** de votre choix. _Éruption ensorcelée, Lumière, Poigne électrique_ et _Prestidigitation_ sont recommandés.  
