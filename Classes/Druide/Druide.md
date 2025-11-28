@@ -1,7 +1,7 @@
 
 ### NIVEAU 1 : SORTS
 
-Vous avez appris à lancer des sorts en étudiant les forces mystiques de la nature. Reportez-vous au chapitre 7 pour les règles d'incantation. Les informations ci-après expliquent comment utiliser ces règles avec les sorts de Druide, qui figurent dans la liste **Sorts de Druide**, plus loin dans le descriptif de la classe.
+Vous avez appris à lancer des sorts en étudiant les forces mystiques de la nature.
 
 **Sorts mineurs**  
 Vous connaissez deux sorts mineurs que vous choisissez dans la liste des sorts de Druide. **Druidisme** et **flammes** sont recommandés.
