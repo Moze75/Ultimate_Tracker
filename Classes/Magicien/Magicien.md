@@ -1,7 +1,7 @@
 
 ### NIVEAU 1 : SORTS
 
-En tant qu’étudiant de la magie profane, vous avez appris à lancer des sorts. Reportez-vous au chapitre 7 pour les règles d’incantation. Les informations ci-après expliquent comment utiliser ces règles avec les sorts de Magicien, qui figurent dans la liste **Sorts de Magicien** plus loin dans le descriptif de la classe.
+En tant qu’étudiant de la magie profane, vous avez appris à lancer des sorts.
 
 **Sorts mineurs.** Vous connaissez trois sorts mineurs de Magicien de votre choix. _Lumière_, _main du mage_ et _rayon de givre_ sont recommandés.
 
@@ -51,7 +51,7 @@ Vous recevez la sous-classe de Magicien de votre choix. Les sous-classes Abjurat
 
 ### NIVEAU 4 : AMÉLIORATION DE CARACTÉRISTIQUE
 
-Vous recevez le don Amélioration de caractéristique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Magicien 8, 12 et 16.
+Vous recevez le don Amélioration de caractéristique ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Magicien 8, 12 et 16.
 
 ### NIVEAU 5 : MÉMORISATION DE SORT
 
@@ -65,7 +65,7 @@ Chaque fois que vous terminez un Repos long, vous pouvez étudier votre grimoire
 
 ### NIVEAU 19 : FAVEUR ÉPIQUE
 
-Vous recevez un don de Faveur épique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Faveur de mémoire magique est recommandé.
+Vous recevez un don de Faveur épique ou un autre don de votre choix pour lequel vous remplissez les conditions. Faveur de mémoire magique est recommandé.
 
 ### NIVEAU 20 : SORTS DE PRÉDILECTION
 
