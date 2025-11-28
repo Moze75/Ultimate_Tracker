@@ -54,7 +54,7 @@ Cette créature doit réussir un jet de sauvegarde de Dextérité sous peine de 
 Vous recevez la sous-classe de Moine de votre choix. Les sous-classes Credo des Éléments, Credo de la Miséricorde, Credo de l’Ombre et Credo de la Paume sont détaillées après la description de cette classe. Une sous-classe est une spécialisation qui vous octroie des aptitudes à certains niveaux de Moine. Pour le reste de votre carrière, vous bénéficiez de chacune des aptitudes de la sous-classe choisie, à concurrence de votre niveau actuel de Moine.
 
 ### Niveau 4 : Amélioration de caractéristique 
-Vous recevez le don Amélioration de caractéristique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Moine 8, 12 et 16.
+Vous recevez le don Amélioration de caractéristique ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Moine 8, 12 et 16.
 
 ### Niveau 4 : Chute ralentie
 Vous pouvez jouer une Réaction pour réduire les dégâts de chute que vous subissez d’un montant égal au quintuple de votre niveau de Moine.
