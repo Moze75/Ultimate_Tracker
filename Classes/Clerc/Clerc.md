@@ -1,7 +1,7 @@
 
 ### NIVEAU 1 : SORTS
 
-Vous avez appris à lancer des sorts grâce à la prière et à la méditation. Reportez-vous au chapitre 7 pour les règles d'incantation. Les informations ci-après expliquent comment utiliser ces règles avec les sorts de Clerc, qui figurent dans la liste Sorts de Clerc, plus loin dans le descriptif de la classe.
+Vous avez appris à lancer des sorts grâce à la prière et à la méditation.
 
 **Sorts mineurs.** Vous connaissez trois sorts mineurs que vous choisissez dans la liste de sorts du Clerc. _Assistance_, _flamme sacrée_ et _thaumaturgie_ sont recommandés.
 
@@ -25,7 +25,7 @@ Si une autre aptitude de Clerc vous octroie des sorts toujours préparés, ces s
 
 ### NIVEAU 4 : AMÉLIORATION DE CARACTÉRISTIQUE
 
-Vous recevez le don Amélioration de caractéristique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Clerc 8, 12 et 16.
+Vous recevez le don Amélioration de caractéristique ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Clerc 8, 12 et 16.
 
 ### NIVEAU 5 : CALCINATION DE MORT-VIVANT
 
@@ -53,7 +53,7 @@ L'option retenue pour Impacts bénis se renforce.
 
 ### NIVEAU 19 : FAVEUR ÉPIQUE
 
-Vous recevez un don de Faveur épique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Faveur du destin est recommandé.
+Vous recevez un don de Faveur épique ou un autre don de votre choix pour lequel vous remplissez les conditions. Faveur du destin est recommandé.
 
 
 ### NIVEAU 20 : INTERVENTION DIVINE SUPRÊME
