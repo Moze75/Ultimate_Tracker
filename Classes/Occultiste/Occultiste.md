@@ -1,7 +1,7 @@
 
 ### NIVEAU 1 : MAGIE DE PACTE
 
-Lors d'une cérémonie impie, vous avez scellé un pacte avec une mystérieuse entité afin de recevoir des pouvoirs magiques. Si l'entité est une voie mystérieuse dont l'identité reste obscure, la faveur qu'elle vous octroie est on ne peut plus tangible : l'aptitude à lancer des sorts. Reportez-vous au chapitre 7 pour les règles d'incantation. Les informations ci-après expliquent comment utiliser ces règles avec les sorts d'Occultiste, qui figurent dans la liste Sorts d'Occultiste, plus loin dans le descriptif de la classe.
+Lors d'une cérémonie impie, vous avez scellé un pacte avec une mystérieuse entité afin de recevoir des pouvoirs magiques. Si l'entité est une voie mystérieuse dont l'identité reste obscure, la faveur qu'elle vous octroie est on ne peut plus tangible : l'aptitude à lancer des sorts.
 
 **Sorts mineurs.** Vous connaissez deux sorts mineurs d'Occultiste de votre choix. _Décharge occulte_ et _prestidigitation_ sont recommandés. Chaque fois que vous gagnez un niveau d'Occultiste, vous pouvez remplacer l'un de vos sorts mineurs par un autre sort mineur d'Occultiste de votre choix.
 
