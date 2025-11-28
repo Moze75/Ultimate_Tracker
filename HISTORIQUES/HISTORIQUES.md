@@ -1,7 +1,7 @@
 ### ACOLYTE
 
 **Valeurs de caractéristique** : Intelligence, Sagesse, Charisme  
-**Don** : Initié à la magie (cf. chapitre 5)  
+**Don** : Initié à la magie
 **Maîtrises de compétence** : Intuition et Religion  
 **Maîtrise d'outils** : Matériel de calligraphie  
 **Équipement** : Choisissez A ou B : (A) Matériel de calligraphie, livre de prières, symbole sacré, parchemin (10 feuilles), robe, 8 po ; ou (B) 50 po
@@ -12,9 +12,9 @@ Vous étiez au service d'un temple, situé en ville ou isolé dans quelque bosqu
 ### ARTISAN
 
 **Valeurs de caractéristique** : Force, Dextérité, Intelligence  
-**Don** : Façonneur (cf. chapitre 5)  
+**Don** : Façonneur 
 **Maîtrises de compétence** : Investigation et Persuasion  
-**Maîtrise d'outils** : Choisissez un type parmi les outils d'artisan (cf. chapitre 6)  
+**Maîtrise d'outils** : Choisissez un type parmi les outils d'artisan 
 **Équipement** : Choisissez A ou B : (A) Outils d'artisan (détails ci-dessus), 2 sacoches, tenue de voyage, 32 po ; ou (B) 50 po
 
 Vous avez commencé à lessiver les sols et récurer les plans de travail dans l'atelier d'un artisan pour quelques piécettes par jour dès que vous avez eu la force de porter un seau. Sitôt en âge de débuter votre apprentissage, vous avez appris à créer des objets artisanaux de base, ainsi qu'à amadouer les clients difficiles. Votre métier vous a également permis d'acquérir un sens aigu du détail.
@@ -23,9 +23,9 @@ Vous avez commencé à lessiver les sols et récurer les plans de travail dans l
 ### ARTISTE
 
 **Valeurs de caractéristique** : Force, Dextérité, Charisme  
-**Don** : Musicien (cf. chapitre 5)  
+**Don** : Musicien 
 **Maîtrises de compétence** : Acrobaties et Représentation  
-**Maîtrise d'outils** : Choisissez un instrument de musique (cf. chapitre 6)  
+**Maîtrise d'outils** : Choisissez un instrument de musique
 **Équipement** : Choisissez A ou B : (A) Instrument de musique (identique à ci‑dessus), 2 costumes, miroir, parfum, tenue de voyage, 11 po ; ou (B) 50 po
 
 Vous avez passé le plus clair de votre jeunesse à suivre les foires et carnavals itinérants, effectuant de menus travaux pour les musiciens et acrobates en échange de leçons. Vous avez peut-être appris à marcher sur une corde raide, à jouer du luth dans un style particulier ou à réciter des poèmes avec une diction impeccable. Aujourd'hui encore, vous aimez être applaudi et rêvez de remonter sur scène.
@@ -34,7 +34,7 @@ Vous avez passé le plus clair de votre jeunesse à suivre les foires et carnava
 ### CHARLATAN
 
 **Valeurs de caractéristique** : Dextérité, Constitution, Charisme  
-**Don** : Doué (cf. chapitre 5)  
+**Don** : Doué 
 **Maîtrises de compétence** : Escamotage et Tromperie  
 **Maîtrise d'outils** : Matériel de contrefaçon  
 **Équipement** : Choisissez A ou B : (A) Matériel de contrefaçon, beaux habits, costume, 15 po ; ou (B) 50 po
@@ -45,7 +45,7 @@ Sitôt en âge de commander une bière, vous avez eu votre tabouret favori dans 
 ### CRIMINEL
 
 **Valeurs de caractéristique** : Dextérité, Constitution, Intelligence  
-**Don** : Doué (cf. chapitre 5)  
+**Don** : Doué
 **Maîtrises de compétence** : Discrétion et Escamotage  
 **Maîtrise d'outils** : Outils de voleur  
 **Équipement** : Choisissez A ou B : (A) 2 dagues, outils de voleur, 2 sacoches, pied-de-biche, tenue de voyage, 16 po ; ou (B) 50 po
@@ -56,7 +56,7 @@ Vous gagniez votre pain dans les ruelles sombres, en coupant des bourses ou en c
 ### ERMITE
 
 **Valeurs de caractéristique** : Constitution, Sagesse, Charisme  
-**Don** : Guérisseur (cf. chapitre 5)  
+**Don** : Guérisseur 
 **Maîtrises de compétence** : Médecine et Religion  
 **Maîtrise d'outils** : Matériel d'herboriste  
 **Équipement** : Choisissez A ou B : (A) Bâton de combat, matériel d'herboriste, huile (3 flasques), lampe, livre (philosophie), sac de couchage, tenue de voyage, 16 po ; ou (B) 50 po
@@ -67,7 +67,7 @@ Vous avez passé vos jeunes années isolé dans une hutte ou un monastère situ�
 ### FERMIER
 
 **Valeurs de caractéristique** : Force, Constitution, Sagesse  
-**Don** : Robuste (cf. chapitre 5)  
+**Don** : Robuste 
 **Maîtrises de compétence** : Dressage et Nature  
 **Maîtrise d'outils** : Outils de charpentier  
 **Équipement** : Choisissez A ou B : (A) Serpe, outils de charpentier, trousse de soins, pelle, pot en fer, tenue de voyage, 30 po ; ou (B) 50 po
@@ -78,9 +78,9 @@ Vous avez grandi près de la terre. Les années passées à vous occuper des bê
 ### GARDE
 
 **Valeurs de caractéristique** : Force, Intelligence, Sagesse  
-**Don** : Vigilant (cf. chapitre 5)  
+**Don** : Vigilant  
 **Maîtrises de compétence** : Athlétisme et Perception  
-**Maîtrise d'outils** : Choisissez un type de boîte de jeux (cf. chapitre 6)  
+**Maîtrise d'outils** : Choisissez un type de boîte de jeux 
 **Équipement** : Choisissez A ou B : (A) Arbalète légère + 20 carreaux, carquois, lance, boîte de jeux (identique à ci-dessus), lanterne à capote, menottes, tenue de voyage, 12 po ; ou (B) 50 po
 
 Vos pieds vous font mal à la simple évocation des longues heures passées à monter la garde dans la tour. Vous avez appris à garder un œil par-delà le rempart, à l'affût des maraudeurs venant de la forêt voisine, et l'autre sur la rue, afin de repérer les coupe-jarrets et les fauteurs de troubles.
@@ -88,7 +88,7 @@ Vos pieds vous font mal à la simple évocation des longues heures passées à m
 ### GUIDE
 
 **Valeurs de caractéristique** : Dextérité, Constitution, Sagesse  
-**Don** : Initié à la magie (cf. chapitre 5)  
+**Don** : Initié à la magie 
 **Maîtrises de compétence** : Discrétion et Survie  
 **Maîtrise d'outils** : Outils de cartographe  
 **Équipement** : Choisissez A ou B : (A) Arc court + 20 flèches, carquois, outils de cartographe, sac de couchage, tente, tenue de voyage, 3 po ; ou (B) 50 po
@@ -99,7 +99,7 @@ Vous avez grandi en plein air, loin des terres habitées. Pour toute maison, vou
 ### MARCHAND
 
 **Valeurs de caractéristique** : Constitution, Intelligence, Charisme  
-**Don** : Chanceux (cf. chapitre 5)  
+**Don** : Chanceux  
 **Maîtrises de compétence** : Dressage et Persuasion  
 **Maîtrise d'outils** : Instruments de navigateur  
 **Équipement** : Choisissez A ou B : (A) Instruments de navigateur, 2 sacoches, tenue de voyage, 22 po ; ou (B) 50 po
@@ -110,7 +110,7 @@ Apprenti auprès d'un négociant, d'un chef caravanier ou d'un commerçant ayant
 ### MARIN
 
 **Valeurs de caractéristique** : Force, Dextérité, Sagesse  
-**Don** : Bagarreur de tavernes (cf. chapitre 5)  
+**Don** : Bagarreur de tavernes 
 **Maîtrises de compétence** : Acrobaties et Perception  
 **Maîtrise d'outils** : Instruments de navigateur  
 **Équipement** : Choisissez A ou B : (A) Dague, instruments de navigateur, corde, tenue de voyage, 20 po ; ou (B) 50 po
@@ -121,9 +121,9 @@ Vous avez vécu l'existence du grand large, le vent dans le dos, le pont oscilla
 ### NOBLE
 
 **Valeurs de caractéristique** : Force, Intelligence, Charisme  
-**Don** : Doué (cf. chapitre 5)  
+**Don** : Doué 
 **Maîtrises de compétence** : Histoire et Persuasion  
-**Maîtrise d'outils** : Choisissez un type de boîte de jeux (cf. chapitre 6)  
+**Maîtrise d'outils** : Choisissez un type de boîte de jeux 
 **Équipement** : Choisissez A ou B : (A) Boîte de jeux (du même type que ci-dessus), beaux habits, parfum, 29 po ; ou (B) 50 po
 
 Vous avez passé votre enfance dans un château, au milieu de l'opulence, du pouvoir et des privilèges. Votre famille de la petite aristocratie a veillé à ce que vous receviez une éducation de premier ordre, que vous avez pour moitié appréciée et pour moitié détestée. Cette vie de château, en particulier les nombreuses heures passées à observer votre famille à la cour, vous a en tout cas beaucoup appris sur l'autorité.
@@ -132,7 +132,7 @@ Vous avez passé votre enfance dans un château, au milieu de l'opulence, du pou
 ### SAGE
 
 **Valeurs de caractéristique** : Constitution, Intelligence, Sagesse  
-**Don** : Initié à la magie (cf. chapitre 5)  
+**Don** : Initié à la magie
 **Maîtrises de compétence** : Arcanes et Histoire  
 **Maîtrise d'outils** : Matériel de calligraphie  
 **Équipement** : Choisissez A ou B : (A) Bâton de combat, matériel de calligraphie, livre (d'histoire), parchemin (8 feuilles), robe, 8 po ; ou (B) 50 po
@@ -143,7 +143,7 @@ Vos années de formation ont été consacrées à voyager de manoir en monastèr
 ### SCRIBE
 
 **Valeurs de caractéristique** : Dextérité, Intelligence, Sagesse  
-**Don** : Doué (cf. chapitre 5)  
+**Don** : Doué
 **Maîtrises de compétence** : Investigation et Perception  
 **Maîtrise d'outils** : Matériel de calligraphie  
 **Équipement** : Choisissez A ou B : (A) Matériel de calligraphie, beaux habits, lampe, huile (3 flasques), parchemin (12 feuilles), 23 po ; ou (B) 50 po
@@ -154,9 +154,9 @@ Vous avez passé vos années de formation dans un scriptorium, un monastère dé
 ### SOLDAT
 
 **Valeurs de caractéristique** : Force, Dextérité, Constitution  
-**Don** : Sauvagerie martiale (cf. chapitre 5)  
+**Don** : Sauvagerie martiale
 **Maîtrises de compétence** : Athlétisme et Intimidation  
-**Maîtrise d'outils** : Choisissez un type de boîte de jeux (cf. chapitre 6)  
+**Maîtrise d'outils** : Choisissez un type de boîte de jeux 
 **Équipement** : Choisissez A ou B : (A) Arc court + 20 flèches, carquois, lance, boîte de jeux (du même type que ci‑dessus), trousse de soins, tenue de voyage, 14 po ; ou (B) 50 po
 
 Formé aux rudiments de la guerre sitôt adulte, vous ne gardez que de rares et précieux souvenirs de ce que fut votre vie avant le métier des armes. Vous avez la bataille dans le sang. Il vous arrive de vous surprendre à exécuter par réflexe vos tout premiers exercices de combat. Vous avez fini par mettre à profit cet entraînement sur le champ de bataille, en faisant la guerre pour protéger le royaume.
@@ -165,7 +165,7 @@ Formé aux rudiments de la guerre sitôt adulte, vous ne gardez que de rares et 
 ### VOYAGEUR
 
 **Valeurs de caractéristique** : Dextérité, Sagesse, Charisme  
-**Don** : Chanceux (cf. chapitre 5)  
+**Don** : Chanceux 
 **Maîtrises de compétence** : Discrétion et Intuition  
 **Maîtrise d'outils** : Outils de voleur  
 **Équipement** : Choisissez A ou B : (A) 2 dagues, outils de voleur, boîte de jeux (tout type), sac de couchage, 2 sacoches, tenue de voyage, 16 po ; ou (B) 50 po
