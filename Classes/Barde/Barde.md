@@ -12,7 +12,7 @@ Vous pouvez inspirer autrui, surnaturellement, par vos paroles, votre musique ou
 
 ### NIVEAU 1 : SORTS
 
-Vous avez appris à lancer des sorts au gré de votre expression artistique. Reportez-vous au chapitre 7 pour les règles d'incantation. Les informations ci-après expliquent comment utiliser ces règles avec les sorts de Barde, qui figurent dans la liste Sorts de Barde, plus loin dans le descriptif de la classe.
+Vous avez appris à lancer des sorts au gré de votre expression artistique.
 
 **Sorts mineurs.** Vous connaissez deux sorts mineurs que vous choisissez dans la liste des sorts de Barde. _Lumières dansantes_ et _moquerie cruelle_ sont recommandés. Chaque fois que vous gagnez un niveau de Barde, vous pouvez remplacer l'un de vos sorts mineurs par un autre sort mineur de votre choix dans la liste du Barde. Lorsque vous atteignez le niveau 4 de Barde, puis le niveau 10, vous apprenez un autre sort mineur de votre choix issu de la liste du Barde, comme indiqué à la colonne Sorts mineurs de la table Aptitudes du Barde.
 
@@ -52,7 +52,7 @@ Vous recevez la sous-classe de Barde de votre choix. Les sous-classes _Collège 
 
 ### NIVEAU 4 : AMÉLIORATION DE CARACTÉRISTIQUE
 
-Vous recevez le don Amélioration de caractéristique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Barde 8, 12 et 16.
+Vous recevez le don Amélioration de caractéristique ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Barde 8, 12 et 16.
 
 ---
 
