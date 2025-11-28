@@ -9,7 +9,7 @@ Vous pouvez ainsi entretenir simultanément un lien avec deux armes occultes dif
 
 ### NIVEAU 3 : SORTS
 
-Vous avez appris à lancer des sorts. Reportez-vous au chapitre 7 pour les règles d'incantation. Les informations ci-après détaillent la façon d'utiliser ces règles en tant que Chevalier occulte.
+Vous avez appris à lancer des sorts.
 
 **Sorts mineurs.** Vous connaissez deux sorts mineurs de votre choix dans la liste des sorts de Magicien (cf. la section de cette classe). Poigne électrique et rayon de givre sont recommandés. Chaque fois que vous gagnez un niveau de Guerrier, vous pouvez remplacer l'un de vos sorts mineurs par un autre sort mineur de votre choix dans la liste du Magicien.
 
