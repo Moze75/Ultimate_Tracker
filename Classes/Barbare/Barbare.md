@@ -53,7 +53,7 @@ Vous recevez la sous-classe de Barbare de votre choix. Les sous-classes Voie de 
 
 ### NIVEAU 4 : AMÉLIORATION DE CARACTÉRISTIQUE
 
-Vous recevez le don Amélioration de caractéristique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Barbare 8, 12 et 16.
+Vous recevez le don Amélioration de caractéristique ou un autre don de votre choix pour lequel vous remplissez les conditions. Vous recevez de nouveau cette aptitude aux niveaux de Barbare 8, 12 et 16.
 
 ### NIVEAU 5 : ATTAQUE SUPPLÉMENTAIRE
 
@@ -110,7 +110,7 @@ Si le total que vous obtenez lors d'un test ou jet de sauvegarde de Force est in
 
 ### NIVEAU 19 : FAVEUR ÉPIQUE
 
-Vous recevez un don de Faveur épique (cf. chapitre 5) ou un autre don de votre choix pour lequel vous remplissez les conditions. Faveur d'attaque irrésistible est recommandé.
+Vous recevez un don de Faveur épique ou un autre don de votre choix pour lequel vous remplissez les conditions. Faveur d'attaque irrésistible est recommandé.
 
 ### NIVEAU 20 : CHAMPION PRIMITIF
 
