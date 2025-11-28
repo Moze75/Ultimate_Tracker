@@ -195,7 +195,7 @@ Niveau 5 : _passage sans trace_
 
 **Ingénieux**. Vous recevez l’inspiration héroïque chaque fois que vous terminez un repos long.
 
-**Don**. Vous recevez le don d’origines de votre choix (cf. chapitre 5). Le don _Doué_ est recommandé.
+**Don**. Vous recevez le don d’origines de votre choix. Le don _Doué_ est recommandé.
 
 ### GNOME
 
