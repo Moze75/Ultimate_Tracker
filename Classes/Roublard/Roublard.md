@@ -1,7 +1,7 @@
 
 ### Niveau 1 : Argot Des Voleurs
 
-Vous avez appris diverses langues auprès des communautés dans lesquelles vous avez fait vos armes de Roublard. Vous connaissez l'argot des voleurs et une autre langue, que vous choisissez dans les tables des langues du chapitre 2.
+Vous avez appris diverses langues auprès des communautés dans lesquelles vous avez fait vos armes de Roublard. Vous connaissez l'argot des voleurs et une autre langue, que vous choisissez dans les paramètres.
 
 ### Niveau 1 : Attaque Sournoise
 
