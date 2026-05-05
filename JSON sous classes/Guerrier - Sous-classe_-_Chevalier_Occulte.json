@@ -1,0 +1,36 @@
+{
+  "name": "Chevalier Occulte",
+  "class": "Guerrier",
+  "features": [
+    {
+      "level": 3,
+      "name": "Arme Occulte",
+      "description": "Vous apprenez un rituel qui forge un lien magique entre une arme et vous. L'accomplissement de ce rituel vous demande 1 heure et peut intervenir dans le cadre d'un **Repos court**. L'arme doit rester à portée de main tout au long de l'opération. La procédure échoue si un autre Guerrier est déjà lié à l'arme ou si l'arme est un objet magique avec lequel quelqu'un est harmonisé.\n\nUne fois lié à une arme, on ne peut plus vous en désarmer tant que vous ne subissez pas l'état **Neutralisé**. Si l'objet est sur le même plan d'existence que vous, vous pouvez le convoquer par une action **Bonus**, auquel cas il est aussitôt téléporté dans votre main.\n\nVous pouvez entretenir simultanément un lien avec deux armes occultes différentes, mais ne pouvez en invoquer qu'une seule par une action **Bonus**. Si vous tentez de forger un lien avec une troisième arme, vous devez renoncer à celui de l'une des deux autres."
+    },
+    {
+      "level": 3,
+      "name": "Sorts",
+      "description": "Vous avez appris à lancer des sorts.\n\n**Sorts mineurs.** Vous connaissez deux sorts mineurs de votre choix dans la liste des sorts de Magicien. Chaque fois que vous gagnez un niveau de Guerrier, vous pouvez remplacer l'un de vos sorts mineurs par un autre sort mineur de la liste du Magicien. Lorsque vous atteignez le niveau 10 de Guerrier, vous apprenez un autre sort mineur de Magicien de votre choix.\n\n**Emplacements de sort.** La table **Sorts du Chevalier occulte** vous indique le nombre d'emplacements de sort dont vous disposez. Vous récupérez tous les emplacements dépensés en terminant un **Repos long**.\n\n| Niveau de Guerrier | Sorts préparés | 1er | 2e | 3e | 4e |\n|---|---|---|---|---|---|\n| 3 | 3 | 2 | — | — | — |\n| 4 | 4 | 3 | — | — | — |\n| 7 | 5 | 4 | 2 | — | — |\n| 10 | 7 | 4 | 3 | — | — |\n| 13 | 9 | 4 | 3 | 2 | — |\n| 16 | 11 | 4 | 3 | 3 | — |\n| 19 | 12 | 4 | 3 | 3 | 1 |\n| 20 | 13 | 4 | 3 | 3 | 1 |\n\n**Sorts préparés.** Pour commencer, choisissez trois sorts du 1er niveau dans la liste de sorts du Magicien. Le nombre de sorts de votre liste augmente à mesure que vous recevez des niveaux de Guerrier, comme l'indique la colonne **Sorts préparés**. Ces sorts doivent être d'un niveau pour lequel vous disposez d'emplacements de sort.\n\n**Modification des sorts préparés.** Chaque fois que vous gagnez un niveau de Guerrier, vous pouvez remplacer un sort de votre liste par un autre sort de Magicien pour lequel vous disposez d'au moins un emplacement.\n\n**Caractéristique d'incantation.** L'**Intelligence** est la caractéristique d'incantation de vos sorts de Magicien.\n\n**Focaliseur d'incantation.** Vous pouvez vous servir d'un focaliseur arcanique comme focaliseur d'incantation de vos sorts de Magicien."
+    },
+    {
+      "level": 7,
+      "name": "Magie de Guerre",
+      "description": "Lorsque vous entreprenez l'action **Attaque** à votre tour, vous pouvez remplacer l'une de vos attaques par l'incantation de l'un de vos sorts mineurs de Magicien dont le temps d'incantation est d'une action."
+    },
+    {
+      "level": 10,
+      "name": "Fragilisation Occulte",
+      "description": "Vous apprenez à rosser l'ennemi de manière à l'exposer à vos sorts. Lorsque vous touchez une créature par une attaque avec une arme, la cible a le **Désavantage** à son prochain jet de sauvegarde contre un sort lancé par vous avant la fin de votre tour suivant."
+    },
+    {
+      "level": 15,
+      "name": "Charge Arcanique",
+      "description": "Lorsque vous entreprenez l'action **Fougue** à votre tour, vous pouvez vous téléporter en un espace inoccupé que vous voyez dans un rayon de 9 m. Vous pouvez vous téléporter avant ou après l'action supplémentaire."
+    },
+    {
+      "level": 18,
+      "name": "Magie de Guerre Améliorée",
+      "description": "Lorsque vous entreprenez l'action **Attaque** à votre tour, vous pouvez remplacer deux de vos attaques par l'incantation de l'un de vos sorts de Magicien du 1er ou 2e niveau dont le temps d'incantation est d'une action."
+    }
+  ]
+}

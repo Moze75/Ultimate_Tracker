@@ -1,0 +1,31 @@
+{
+  "name": "Soldat Psi",
+  "class": "Guerrier",
+  "features": [
+    {
+      "level": 3,
+      "name": "Pouvoir Psionique",
+      "description": "Vous recélez une source d'énergie psionique représentée par vos **dés d'Énergie psionique**.\n\n| Niveau de Guerrier | Taille de dé | Nombre |\n|---|---|---|\n| 3 | d6 | 4 |\n| 5 | d8 | 6 |\n| 9 | d8 | 8 |\n| 11 | d10 | 8 |\n| 13 | d10 | 10 |\n| 17 | d12 | 12 |\n\nVous récupérez un dé d'Énergie psionique dépensé en terminant un **Repos court**, et les récupérez tous en terminant un **Repos long**.\n\n**Champ protecteur.** Lorsqu'une créature que vous voyez dans un rayon de 9 m (ou vous-même) subit des dégâts, vous pouvez jouer une **Réaction** pour dépenser un dé d'Énergie psionique, le lancer et réduire les dégâts subis du nombre obtenu plus votre modificateur d'**Intelligence** (réduction minimale de 1).\n\n**Déplacement télékinétique.** Au prix de l'action **Magie**, vous ciblez un objet non porté de taille G ou inférieure ou une créature consentante autre que vous dans un rayon de 9 m. Vous téléportez la cible en un espace inoccupé que vous voyez dans un rayon de 9 m de sa position initiale. S'il s'agit d'un objet de taille TP, vous pouvez aussi le téléporter jusqu'à votre main ou depuis elle. Une fois cette aptitude utilisée, vous devez terminer un **Repos court** ou **long**, ou dépenser un dé d'Énergie psionique (pas d'action requise), pour en récupérer l'usage.\n\n**Frappe psionique.** Une fois à chacun de vos tours, juste après avoir touché une cible dans un rayon de 9 m avec une attaque et lui avoir infligé des dégâts, vous pouvez dépenser un dé d'Énergie psionique, le lancer et infliger à la cible autant de dégâts de force que le nombre obtenu plus votre modificateur d'**Intelligence**."
+    },
+    {
+      "level": 7,
+      "name": "Adepte Télékinétique",
+      "description": "Vous avez maîtrisé de nouvelles applications de vos facultés télékinétiques.\n\n**Bond psi.** Par une action **Bonus**, vous recevez une Vitesse de vol égale au double de votre **Vitesse** jusqu'à la fin du tour en cours. Une fois cette action **Bonus** utilisée, vous devez terminer un **Repos court** ou **long**, ou dépenser un dé d'Énergie psionique (pas d'action requise), pour en récupérer l'usage.\n\n**Poussée télékinétique.** Lorsque vous infligez des dégâts à une cible par l'intermédiaire de votre **Frappe psionique**, vous pouvez la contraindre à un JS de **Force** (DD 8 + bonus de maîtrise + modificateur d'**Intelligence**). En cas d'échec, vous pouvez lui imposer l'état **À terre** ou la transporter horizontalement d'un maximum de 3 m."
+    },
+    {
+      "level": 10,
+      "name": "Esprit Blindé",
+      "description": "Vous bénéficiez de la **Résistance** aux dégâts psychiques. De plus, si vous commencez votre tour avec l'état **Charmé** ou **Effrayé**, vous pouvez dépenser un dé d'Énergie psionique (pas d'action requise) pour mettre un terme sur vous-même à tout effet qui vous impose ce ou ces états."
+    },
+    {
+      "level": 15,
+      "name": "Rempart de Force",
+      "description": "Par une action **Bonus**, vous pouvez choisir un nombre de créatures (qui peuvent vous inclure) dans un rayon de 9 m ne dépassant pas votre modificateur d'**Intelligence** (minimum d'une créature). Chacune bénéficie d'un **Abri partiel** pendant 1 minute, mais l'effet prend fin prématurément si vous subissez l'état **Neutralisé**.\n\nUne fois cette aptitude utilisée, vous devez terminer un **Repos long**, ou dépenser un dé d'Énergie psionique (pas d'action requise), pour en récupérer l'usage."
+    },
+    {
+      "level": 18,
+      "name": "Maître Télékinétique",
+      "description": "_Télékinésie_ figure toujours parmi vos sorts préparés. Grâce à cette aptitude, vous pouvez le lancer sans emplacement de sort ni composantes, l'**Intelligence** étant votre caractéristique d'incantation. À chacun de vos tours tant que vous maintenez la **Concentration** sur le sort, y compris au tour de son incantation, vous pouvez effectuer une attaque avec une arme par une action **Bonus**.\n\nUne fois que vous avez lancé le sort par ce biais, vous devez terminer un **Repos long**, ou dépenser un dé d'Énergie psionique (pas d'action requise), pour en récupérer l'usage."
+    }
+  ]
+}

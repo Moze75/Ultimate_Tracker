@@ -1,0 +1,36 @@
+{
+  "name": "Vagabond Féérique",
+  "class": "Rôdeur",
+  "features": [
+    {
+      "level": 3,
+      "name": "Charme Mystique",
+      "description": "Chaque fois que vous effectuez un test de Charisme, vous recevez au test un bonus égal à votre modificateur de Sagesse (minimum de +1).\n\nVous recevez également la maîtrise de l'une des compétences au choix ci-après : Persuasion, Représentation ou Tromperie."
+    },
+    {
+      "level": 3,
+      "name": "Frappes Effroyables",
+      "description": "Vous pouvez agrémenter vos coups avec arme d'une magie traumatisante tirée des recoins les plus sombres de la Féerie. Lorsque vous touchez une créature avec une arme, vous pouvez lui infliger 1d4 dégâts psychiques supplémentaires (une seule fois par tour pour une même cible). Ces dégâts supplémentaires passent à 1d6 lorsque vous atteignez le niveau 11 de Rôdeur."
+    },
+    {
+      "level": 3,
+      "name": "Sorts de Vagabond Féérique",
+      "description": "Lorsque vous atteignez un niveau de Rôdeur spécifié dans la table **Sorts de Vagabond féerique**, les sorts qui y figurent sont toujours préparés pour vous.\n\n| Niveau de Rôdeur | Sort |\n|---|---|\n| 3 | *charme-personne* |\n| 5 | *foulée brumeuse* |\n| 9 | *convocation de fée* |\n| 13 | *porte dimensionnelle* |\n| 17 | *double illusoire* |\n\nVous jouissez également d'une bénédiction féerique. Choisissez votre faveur dans la table **Présents de Féerie** ou laissez le hasard décider pour vous.\n\n| 1d6 | Présent |\n|---|---|\n| 1 | Des papillons illusoires volètent autour de vous lorsque vous prenez un Repos court ou long. |\n| 2 | Des fleurs s'épanouissent dans vos cheveux à chaque lever du jour. |\n| 3 | Il émane de vous une légère odeur de cannelle, de lavande, de muscade ou autre herbe ou épice douce. |\n| 4 | Votre ombre danse quand personne ne la regarde directement. |\n| 5 | Des cornes ou une ramure saillent de votre crâne. |\n| 6 | Votre couleur de peau et de cheveux changent chaque matin à l'aube. |"
+    },
+    {
+      "level": 7,
+      "name": "Fascination Détournée",
+      "description": "La magie de Féerie protège votre esprit. Vous avez l'Avantage aux jets de sauvegarde visant à éviter les états Charmé ou Effrayé ainsi qu'à y mettre un terme sur vous-même.\n\nEn outre, chaque fois qu'une créature que vous voyez dans un rayon de 36 m (ou vous-même) réussit un jet de sauvegarde visant à éviter l'état Charmé ou Effrayé ou à y mettre un terme, vous pouvez jouer votre Réaction pour contraindre une autre créature que vous voyez dans un rayon de 36 m à effectuer un jet de sauvegarde de Sagesse assorti de votre DD de sauvegarde des sorts. En cas d'échec, la cible est Charmée ou Effrayée (à votre convenance) pendant 1 minute. La cible réitère le JS à la fin de chacun de ses tours et met un terme à l'effet sur elle-même en cas de réussite."
+    },
+    {
+      "level": 11,
+      "name": "Renforts Féeriques",
+      "description": "Vous pouvez lancer *convocation de fée* sans composante matérielle. Vous pouvez aussi le lancer une fois sans dépenser d'emplacement de sort et récupérez cette aptitude en terminant un Repos long.\n\nChaque fois que vous commencez à lancer ce sort, vous pouvez en modifier l'incantation afin qu'elle ne nécessite pas la Concentration. Ce faisant, la durée du sort passe à 1 minute pour cette incantation."
+    },
+    {
+      "level": 15,
+      "name": "Vagabond des Brumes",
+      "description": "Vous pouvez lancer *foulée brumeuse* sans dépenser d'emplacement de sort. Vous pouvez opérer ainsi autant de fois que votre modificateur de Sagesse (minimum d'une fois) et vous récupérez ce quota en terminant un Repos long.\n\nPar ailleurs, chaque fois que vous lancez *foulée brumeuse*, vous pouvez emmener avec vous une créature consentante que vous voyez dans un rayon de 1,50 m. La créature se téléporte alors dans un espace inoccupé de votre choix, dans un rayon de 1,50 m de votre espace de destination."
+    }
+  ]
+}

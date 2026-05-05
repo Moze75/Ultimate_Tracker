@@ -1,0 +1,31 @@
+{
+  "name": "Protecteur Archifée",
+  "class": "Occultiste",
+  "features": [
+    {
+      "level": 3,
+      "name": "Foulée des Fées",
+      "description": "Votre protecteur vous octroie la possibilité de vous déplacer entre les frontières des plans.\n\nVous pouvez lancer *foulée brumeuse* sans dépenser d'emplacement de sort autant de fois que votre modificateur de Charisme (minimum une fois), et vous récupérez ce quota en terminant un repos long.\n\nChaque fois que vous lancez ce sort, vous pouvez en outre choisir l'un des effets supplémentaires suivants :\n\n- **Foulée provocatrice.** Les créatures dans un rayon de 1,50 m de l'espace que vous venez de quitter doivent réussir un jet de sauvegarde de Sagesse assorti de votre DD de sauvegarde des sorts, sous peine de subir le Désavantage à leurs jets d'attaque contre toute créature autre que vous jusqu'au début de votre tour suivant.\n\n- **Foulée revigorante.** Aussitôt après votre téléportation, vous-même ou une créature que vous voyez dans un rayon de 3 m recevez 1d10 points de vie temporaires."
+    },
+    {
+      "level": 3,
+      "name": "Sorts de l'Archifée",
+      "description": "La magie de votre protecteur vous assure d'avoir certains sorts disponibles en permanence : lorsque vous atteignez un niveau d'Occultiste spécifié dans la table **Sorts de l'Archifée**, les sorts qui y figurent sont toujours préparés pour vous.\n\n| Niveau d'Occultiste | Sorts |\n|---|---|\n| 3 | Apaisement des émotions, Force fantasmagorique, Foulée brumeuse |\n| 5 | Lueurs féeriques, Sommeil, Clignotement, Croissance végétale |\n| 7 | Domination de bête, Invisibilité suprême |\n| 9 | Apparence trompeuse, Domination de personne |"
+    },
+    {
+      "level": 6,
+      "name": "Échappatoire Brumeuse",
+      "description": "Vous pouvez lancer *Foulée brumeuse* en utilisant votre **Réaction** après avoir subi des dégâts.\n\nLes effets suivants font désormais partie de vos options de **Foulée des fées** :\n\n- **Foulée de disparition.** Vous obtenez l'état **Invisible** jusqu'au début de votre prochain tour ou jusqu'à ce que vous effectuiez un jet d'attaque, infligiez des dégâts, ou lanciez un sort.\n\n- **Foulée effroyable.** Les créatures dans un rayon de 1,50 m de l'espace que vous quittez ou de celui où vous apparaissez doivent réussir un **jet de sauvegarde de Dextérité** (DD de sauvegarde des sorts) sous peine de subir **2d10 dégâts psychiques**."
+    },
+    {
+      "level": 10,
+      "name": "Charmante Défenses",
+      "description": "Votre protecteur vous enseigne l'art de protéger votre corps et votre esprit. Vous êtes **immunisé contre l'état Charmé**.\n\nDe plus, dès qu'une créature vous touche avec un jet d'attaque, vous pouvez utiliser votre **Réaction** pour :\n\n- Réduire de moitié les dégâts subis (arrondis à l'inférieur).\n- Contraindre l'assaillant à effectuer un **jet de sauvegarde de Sagesse** (DD de sauvegarde des sorts). En cas d'échec, l'assaillant subit autant de **dégâts psychiques** que ceux qu'il vous a infligés.\n\nUne fois cette Réaction utilisée, vous devez **terminer un repos long** ou **dépenser un emplacement de sort de magie de pacte** (pas d'action requise) pour la récupérer."
+    },
+    {
+      "level": 14,
+      "name": "Magie et Téléportation",
+      "description": "Votre protecteur vous octroie la capacité d'entretenir votre magie et la **téléportation**.\n\nAussitôt après avoir lancé un sort d'**Enchantement** ou d'**Illusion** en utilisant votre action et un emplacement de sort, vous pouvez lancer *Foulée brumeuse* dans le cadre de la même action **sans dépenser d'emplacement de sort**."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Protecteur Céleste",
+  "class": "Occultiste",
+  "features": [
+    {
+      "level": 3,
+      "name": "Lumière Guérisseuse",
+      "description": "Vous recevez le pouvoir de canaliser l'énergie céleste pour soigner les blessures. Vous disposez d'une réserve de d6 pour alimenter cette guérison. Le total de dés dans cette réserve est égal à 1 + votre niveau d'Occultiste.\n\nPar une action Bonus, vous pouvez vous soigner, ou soigner une créature que vous voyez dans un rayon de 18 m, en dépensant des dés de la réserve. Le nombre maximum de dés que vous pouvez dépenser en une seule fois est égal à votre modificateur de Charisme (minimum d'un dé). Lancez les dés que vous dépensez et faites récupérer un nombre de points de vie égal au total obtenu. Votre réserve se reconstitue intégralement lorsque vous terminez un Repos long."
+    },
+    {
+      "level": 3,
+      "name": "Sorts du Céleste",
+      "description": "La magie de votre protecteur vous assure d'avoir certains sorts disponibles en permanence ; lorsque vous atteignez un niveau d'Occultiste spécifié dans la table **Sorts du Céleste**, les sorts qui y figurent sont toujours préparés pour vous.\n\n| Niveau d'Occultiste | Sorts |\n|---|---|\n| 3 | *aide*, *flamme sacrée*, *lumière*, *rayon traçant*, *restauration partielle*, *soins* |\n| 5 | *lumière du jour*, *retour à la vie* |\n| 7 | *gardien de la foi*, *mur de feu* |\n| 9 | *convocation de céleste*, *restauration suprême* |"
+    },
+    {
+      "level": 6,
+      "name": "Âme Radiante",
+      "description": "Le lien avec votre protecteur vous permet de servir de vecteur à l'énergie radiante. Vous recevez la Résistance aux dégâts radiants. Une fois par tour, lorsqu'un sort que vous lancez inflige des dégâts radiants à une créature, vous pouvez ajouter votre modificateur de Charisme aux dégâts de ce sort contre l'une des cibles du sort."
+    },
+    {
+      "level": 10,
+      "name": "Résilience Céleste",
+      "description": "Vous recevez des points de vie temporaires chaque fois que vous utilisez votre aptitude Rouerie magique ou que vous terminez un Repos court ou long. Le montant de ces points de vie temporaires est égal à votre niveau d'Occultiste + votre modificateur de Charisme. En outre, choisissez jusqu'à cinq créatures que vous voyez lorsque vous recevez ces points. Ces créatures reçoivent chacune un nombre de points de vie temporaires égal à la moitié de votre niveau d'Occultiste + votre modificateur de Charisme."
+    },
+    {
+      "level": 14,
+      "name": "Vengeance Aveuglante",
+      "description": "Lorsque vous-même ou un allié dans un rayon de 18 m êtes sur le point d'effectuer un jet de sauvegarde contre la mort, vous pouvez libérer de l'énergie radiante afin de sauver cette créature. La créature récupère un nombre de points de vie égal à la moitié de son maximum de points de vie et peut mettre un terme à l'état À terre sur elle-même. Chaque créature de votre choix dans un rayon de 9 m de cette créature subit un montant de dégâts radiants égal à 2d8 + votre modificateur de Charisme, et chacune subit l'état Aveuglé jusqu'à la fin du tour en cours.\n\nUne fois que vous avez utilisé cette aptitude, vous devez terminer un Repos long pour pouvoir y recourir de nouveau."
+    }
+  ]
+}

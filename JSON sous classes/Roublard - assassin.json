@@ -1,0 +1,31 @@
+{
+  "name": "Assassin",
+  "class": "Roublard",
+  "features": [
+    {
+      "level": 3,
+      "name": "Assassinat",
+      "description": "Formé à tendre une embuscade à une cible, vous recevez les bénéfices ci-après.\n\n**Frappe éclair.** Pendant le premier round de chaque combat, vous avez l'Avantage aux jets d'attaque contre toute créature qui n'a pas encore joué de round de son tour. Si votre Attaque sournoise touche une cible pendant ce round, la cible subit des dégâts supplémentaires du type de l'arme d'un montant égal à votre niveau de Roublard.\n\n**Initiative.** Vous avez l'Avantage aux jets d'Initiative."
+    },
+    {
+      "level": 3,
+      "name": "Outils d'Assassin",
+      "description": "Vous recevez des accessoires de déguisement et un matériel d'empoisonneur, outils pour lesquels vous avez la maîtrise."
+    },
+    {
+      "level": 9,
+      "name": "Expert en Infiltration",
+      "description": "Vous êtes passé expert dans les techniques qui facilitent vos infiltrations.\n\n**Mimétisme magistral.** Vous imitez infailliblement l'élocution, la façon d'écrire ou les traits propres à une tierce personne pour peu que vous ayez consacré au moins 1 heure à l'observer.\n\n**Visée mobile.** Votre Vitesse n'est pas réduite à 0 par l'utilisation de Visée appliquée."
+    },
+    {
+      "level": 13,
+      "name": "Armes Envenimées",
+      "description": "Lorsque vous recourez à l'option Poison de votre Frappe malicieuse, la cible subit également 2d6 dégâts de poison chaque fois qu'elle rate son jet de sauvegarde. Ces dégâts ne sont pas affectés par la Résistance aux dégâts de poison."
+    },
+    {
+      "level": 17,
+      "name": "Coup Meurtrier",
+      "description": "Quand vous touchez avec votre Attaque sournoise lors du premier round de combat, la cible doit réussir un jet de sauvegarde de Constitution (DD = 8 + votre modificateur de Dextérité + votre bonus de maîtrise), faute de quoi les dégâts de l'attaque sont doublés contre la cible."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Traqueur des Ténèbres",
+  "class": "Rôdeur",
+  "features": [
+    {
+      "level": 3,
+      "name": "Embuscade Effrayante",
+      "description": "Passé maître dans l'art de tendre des embuscades redoutables, vous recevez les bénéfices suivants.\n\n**Bonus d'initiative.** Lorsque vous jouez l'initiative, vous pouvez ajouter votre modificateur de Sagesse au jet.\n\n**Frappe effroyable.** Lorsque vous attaquez une créature et la touchez avec une arme, vous pouvez lui infliger 2d6 dégâts psychiques supplémentaires. Vous ne pouvez profiter de ce bénéfice qu'une seule fois par tour, autant de fois que votre modificateur de Sagesse (minimum d'une fois) et récupérez ce quota en terminant un Repos long.\n\n**Prestesse de l'embusqué.** Au début du premier tour de chaque combat, votre Vitesse augmente de 3 m jusqu'à la fin de ce tour."
+    },
+    {
+      "level": 3,
+      "name": "Sorts de Traqueur des Ténèbres",
+      "description": "Lorsque vous atteignez un niveau de Rôdeur spécifié dans la table **Sorts de Traqueur des ténèbres**, les sorts qui y figurent sont toujours préparés pour vous.\n\n| Niveau de Rôdeur | Sorts |\n|---|---|\n| 3 | *déguisement* |\n| 5 | *corde enchantée* |\n| 9 | *terreur* |\n| 13 | *invisibilité suprême* |\n| 17 | *apparence trompeuse* |"
+    },
+    {
+      "level": 3,
+      "name": "Vision Ombreuse",
+      "description": "Vous recevez la Vision dans le noir sur 18 m. Si vous en disposiez déjà lorsque vous recevez cette aptitude, la portée de votre Vision dans le noir augmente de 18 m.\n\nVous possédez aussi l'art d'échapper aux créatures qui se fient à la Vision dans le noir. Entièrement dans les Ténèbres, vous jouissez de l'état Invisible vis-à-vis de toute créature qui compte sur sa Vision dans le noir pour vous détecter dans cette obscurité."
+    },
+    {
+      "level": 7,
+      "name": "Mental d'Acier",
+      "description": "Vous avez affiné votre capacité à résister aux pouvoirs qui altèrent l'esprit. Vous recevez la maîtrise des jets de sauvegarde de Sagesse. Si vous disposiez déjà de cette maîtrise, vous recevez à la place la maîtrise des jets de sauvegarde d'Intelligence ou de Charisme (choisissez l'un des deux)."
+    },
+    {
+      "level": 11,
+      "name": "Rafale du Traqueur",
+      "description": "Les dégâts psychiques de votre Frappe effroyable passent à 2d8. En outre, lorsque vous utilisez l'effet Frappe effroyable de votre aptitude Embuscade effrayante, vous pouvez provoquer l'un des effets supplémentaires suivants.\n\n**Frappe soudaine.** Vous pouvez effectuer une nouvelle attaque avec la même arme contre une créature différente dans un rayon de 1,50 m de la cible initiale et à portée de cette arme.\n\n**Terreur collective.** La cible et chaque créature dans un rayon de 5 m de celle-ci effectuent un jet de sauvegarde de Sagesse assorti de votre DD de sauvegarde des sorts. En cas d'échec, une créature subit l'état Effrayé jusqu'au début de votre tour suivant."
+    },
+    {
+      "level": 15,
+      "name": "Esquive des Ombres",
+      "description": "Lorsqu'une créature effectue un jet d'attaque contre vous, vous pouvez jouer votre Réaction pour imposer le Désavantage à ce jet. Que cette attaque touche ou rate, vous pouvez ensuite vous téléporter d'un maximum de 9 m dans un espace inoccupé que vous voyez."
+    }
+  ]
+}

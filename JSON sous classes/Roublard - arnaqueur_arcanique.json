@@ -1,0 +1,31 @@
+{
+  "name": "Arnaqueur Arcanique",
+  "class": "Roublard",
+  "features": [
+    {
+      "level": 3,
+      "name": "Passe-Passe à Distance",
+      "description": "Lorsque vous lancez *main du mage*, vous pouvez la lancer par une action Bonus et octroyer à la main spectrale l'état Invisible. Vous contrôlez la main par une action Bonus, et par son biais, vous pouvez effectuer des tests de Dextérité (Escamotage)."
+    },
+    {
+      "level": 3,
+      "name": "Sorts",
+      "description": "Vous avez appris à lancer des sorts.\n\n**Sorts mineurs.** Vous connaissez trois sorts mineurs : *main du mage* et deux autres sorts mineurs de votre choix dans la liste des sorts de Magicien. *Piqûre mentale* et *illusion mineure* sont recommandés. Chaque fois que vous gagnez un niveau de Roublard, vous pouvez remplacer l'un de vos sorts mineurs (à l'exception de *main du mage*) par un autre sort mineur de Magicien. Au niveau 10 de Roublard, vous apprenez un sort mineur de Magicien supplémentaire.\n\n**Emplacements de sort.** Vous récupérez tous les emplacements de sort dépensés en terminant un Repos long.\n\n**Sorts préparés du 1er niveau et plus.** Pour commencer, choisissez trois sorts du 1er niveau du Magicien (*charme-personne*, *déguisement* et *nappe de brouillard* sont recommandés). Le nombre de sorts préparés augmente avec votre niveau, comme indiqué dans la table ci-dessous.\n\n| Niveau de Roublard | Sorts préparés | 1er | 2e | 3e | 4e |\n|:-:|:-:|:-:|:-:|:-:|:-:|\n| 3 | 3 | 2 | — | — | — |\n| 4 | 4 | 3 | — | — | — |\n| 7 | 5 | 4 | 2 | — | — |\n| 10 | 7 | 4 | 3 | — | — |\n| 13 | 9 | 4 | 3 | 2 | — |\n| 16 | 11 | 4 | 3 | 3 | — |\n| 19 | 12 | 4 | 3 | 3 | 1 |\n| 20 | 13 | 4 | 3 | 3 | 1 |\n\n**Modification des sorts préparés.** Chaque fois que vous gagnez un niveau de Roublard, vous pouvez remplacer un sort de votre liste par un autre sort de Magicien pour lequel vous disposez au moins d'un emplacement.\n\n**Caractéristique d'incantation.** L'Intelligence est la caractéristique d'incantation de vos sorts de Magicien.\n\n**Focaliseur d'incantation.** Vous pouvez vous servir d'un focaliseur arcanique comme focaliseur d'incantation de vos sorts de Magicien."
+    },
+    {
+      "level": 9,
+      "name": "Embuscade Magique",
+      "description": "Si vous jouissez de l'état Invisible lorsque vous lancez un sort sur une créature, celle-ci a le Désavantage aux éventuels jets de sauvegarde qu'elle effectue contre ce sort lors du même tour."
+    },
+    {
+      "level": 13,
+      "name": "Omniprésence",
+      "description": "Vous recevez l'art de détourner l'attention de votre cible à l'aide de votre *main du mage*. Lorsque vous recourez à l'option Croc-en-jambe de Frappe malicieuse sur une créature, vous pouvez également utiliser cette option sur une autre créature située dans un rayon de 1,50 m de la main spectrale."
+    },
+    {
+      "level": 17,
+      "name": "Voleur de Sorts",
+      "description": "Vous savez désormais comment chiper magiquement le savoir relatif aux incantations d'un autre lanceur de sorts. Aussitôt après qu'une créature a lancé un sort qui vous cible ou vous inclut dans sa zone d'effet, vous pouvez jouer votre Réaction pour contraindre cette créature à effectuer un jet de sauvegarde d'Intelligence (DD égal à votre DD de sauvegarde des sorts). En cas d'échec, vous annulez l'effet du sort contre vous et volez les connaissances relatives à son incantation si celui-ci est au moins de 1er niveau et d'un niveau que vous pouvez lancer. Pendant les 8 heures suivantes, ce sort est considéré comme préparé pour vous, et la créature ne peut pas le lancer avant que ces 8 heures soient écoulées.\n\nUne fois que vous avez volé un sort avec cette aptitude, vous devez terminer un Repos long pour pouvoir y recourir de nouveau."
+    }
+  ]
+}
