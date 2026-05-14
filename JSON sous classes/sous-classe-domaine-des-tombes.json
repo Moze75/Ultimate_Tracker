@@ -1,0 +1,46 @@
+{
+  "name": "Domaine des tombes",
+  "class": "Clerc",
+  "features": [
+    {
+      "level": 1,
+      "name": "Sorts de domaine",
+      "description": "**Niveau 1 :** fléau, simulacre de vie\n\n**Niveau 3 :** préservation des morts, rayon d'affaiblissement\n\n**Niveau 5 :** retour à la vie, toucher du vampire\n\n**Niveau 7 :** flétrissement, protection contre la mort\n\n**Niveau 9 :** coquille antivie, rappel à la vie"
+    },
+    {
+      "level": 1,
+      "name": "Maîtrise supplémentaire",
+      "description": "Vous gagnez la maîtrise des armures lourdes."
+    },
+    {
+      "level": 1,
+      "name": "Cercle de la mort",
+      "description": "Vous gagnez la capacité de modifier la ligne entre la vie et la mort.\n\nLorsque vous lancez un sort qui redonne des points de vie à une créature qui est à 0 pv, traitez n'importe quel dé lancé pour déterminer la quantité de soins comme s'il avait donné le résultat maximum.\n\nDe plus, si vous possédez le sort mineur stabilisation, vous pouvez le lancer en tant qu'action bonus."
+    },
+    {
+      "level": 1,
+      "name": "Œil de la tombe",
+      "description": "Vous gagnez un sens inné des créatures dont l’existence est une insulte au cycle naturel de la vie.\n\nSi vous passez 1 minute en contemplation ininterrompue, vous pouvez déterminer la présence et la nature de créatures morts-vivantes dans la zone. Cette détection s'étend jusqu'à 1,5 kilomètre dans toutes les directions.\n\nVous apprenez le nombre de morts-vivants, leur distance et la direction dans laquelle ils se trouvent par rapport à vous. De plus, vous connaissez le type de la créature morte-vivante ayant le plus grand facteur de difficulté.\n\nUne fois que vous avez utilisé cette capacité, vous devez terminer un repos long avant de pouvoir l'utiliser à nouveau."
+    },
+    {
+      "level": 2,
+      "name": "Conduit divin : chemin de la tombe",
+      "description": "Vous pouvez utiliser votre Conduit divin pour marquer la force vitale d'une autre créature.\n\nPar une action, vous touchez une créature. La prochaine fois que cette créature prend des dégâts venant d'un sort ou d'une attaque de votre part ou de celle d'un de vos alliés, elle sera vulnérable au type de dégâts de ce sort ou de cette attaque.\n\nSi la source des dégâts est de plusieurs types, la créature est vulnérable à tous ces types de dégâts.\n\nLa vulnérabilité s'applique seulement la première fois que cette source inflige des dégâts et prend fin immédiatement après.\n\nSi une créature était résistante ou immunisée à ce type de dégâts, elle ne devient pas vulnérable mais perd, pour cette fois, cette immunité ou cette résistance aux dégâts."
+    },
+    {
+      "level": 6,
+      "name": "La sentinelle aux portes de la mort",
+      "description": "Vous gagnez la capacité de ralentir la mort.\n\nPar une réaction, lorsque vous, ou un allié que vous pouvez voir dans un rayon de 9 mètres autour de vous, recevez un coup critique, vous pouvez transformer cette attaque en un coup normal.\n\nTout effet déclenché par un coup critique est annulé.\n\nUne fois que vous avez utilisé cette capacité, vous ne pouvez plus le faire jusqu'à ce que vous ayez terminé un repos court ou long."
+    },
+    {
+      "level": 8,
+      "name": "Frappe divine",
+      "description": "Vous gagnez la capacité d'imprégner votre arme d'énergie divine.\n\nUne fois à chacun de vos tours, lorsque vous touchez une créature avec une arme, vous pouvez ajouter 1d8 de dégâts nécrotiques.\n\nLorsque vous atteignez le niveau 14, les dégâts supplémentaires augmentent à 2d8."
+    },
+    {
+      "level": 17,
+      "name": "Gardien des âmes",
+      "description": "Vous gagnez la capacité de manipuler la frontière entre la vie et la mort.\n\nLorsqu'un ennemi que vous pouvez voir dans un rayon de 9 mètres autour de vous meurt, vous, ou un allié de votre choix situé à 9 mètres ou moins de vous, regagnez un nombre de points de vie égal au nombre de dés de vie de cet ennemi.\n\nVous pouvez utiliser cette capacité tant que vous n'êtes pas incapable d'agir, mais jamais plus d'une fois par round."
+    }
+  ]
+}
