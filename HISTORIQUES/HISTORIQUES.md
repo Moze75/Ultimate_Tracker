@@ -45,7 +45,7 @@ Sitôt en âge de commander une bière, vous avez eu votre tabouret favori dans 
 ### CRIMINEL
 
 **Valeurs de caractéristique** : Dextérité, Constitution, Intelligence  
-**Don** : Doué
+**Don** : Vigilant
 **Maîtrises de compétence** : Discrétion et Escamotage  
 **Maîtrise d'outils** : Outils de voleur  
 **Équipement** : Choisissez A ou B : (A) 2 dagues, outils de voleur, 2 sacoches, pied-de-biche, tenue de voyage, 16 po ; ou (B) 50 po
