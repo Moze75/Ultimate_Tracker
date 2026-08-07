@@ -246,9 +246,12 @@ Chaque fois que votre bonus de maîtrise augmente par la suite, vous pouvez ajou
 
 ### MAÎTRE D'ARMES
 
-_Don général (prérequis : niveau 4 ou supérieur)_ Vous recevez les bénéfices suivants:
+_Don général (prérequis : niveau 4 ou supérieur)_ Vous bénéficiez des avantages suivants.
 
-**Augmentation de caractéristique.** Votre valeur de Force ou de Dextérité augmente de 1, jusqu'à un maximum de 20.
+**Augmentation de caractéristique.** Augmentez votre Force ou Dextérité de 1, jusqu'à un maximum de 20.
+
+**Propriété botte.** Votre formation aux armes vous permet d'utiliser la botte d'un type d'arme courante ou de guerre de votre choix, à condition de maîtriser ce type d'arme. À la fin d'un Repos long, vous pouvez changer de type d'arme pour un autre type d'arme éligible.
+
 ### MAÎTRE D'HAST
 
 _Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou plus)_ Vous bénéficiez des avantages suivants.
