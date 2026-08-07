@@ -61,9 +61,9 @@ _Don général (prérequis : niveau 4 ou supérieur)_ Vous recevez les bénéfic
 
 **Ustensiles de cuisinier.** Vous recevez la maîtrise des ustensiles de cuisinier et vous n'en disposez pas déjà.
 
-**Repas revigorants.** Dans le cadre d'un Repos court, vous pouvez préparer un repas spécial à condition de disposer des ingrédients nécessaires et d'ustensiles de cuisinier. Vous pouvez préparer un repas suffisant pour autant de créatures que 4 + votre bonus de maîtrise. À l'issue du Repos court, toute créature qui a pris part à ce repas et dépense un ou plusieurs Dés de vie récupère des points de vie récupère 1d8 points de vie supplémentaires.
+**Repas reconstituant.** Lors d'un Repos court, vous pouvez cuisiner des plats spéciaux si vous avez des ingrédients et des ustensiles de cuisinier sous la main. Vous pouvez préparer suffisamment de nourriture pour un nombre de créatures égal à 4 plus votre bonus de maîtrise. À la fin du Repos court, toute créature qui mange ces plats et dépense un ou plusieurs DV pour regagner des points de vie regagne 1d8 points de vie supplémentaires.
 
-**Friandises stimulantes.** Si vous ne conservez 1 heure pour préparer des friandises à base d'ingrédients, vous pouvez préparer autant de friandises que votre bonus de maîtrise à condition de disposer des ingrédients nécessaires et d'ustensiles de cuisinier. Ces friandises spéciales gardent leurs propriétés pendant 8 heures après leur préparation. Une créature peut ingérer une telle friandise par une action Bonus afin de récupérer autant de points de vie temporaires que votre bonus de maîtrise.
+**Friandises galvanisantes.** Après 1 heure de travail ou lorsque vous terminez un Repos long, vous pouvez cuisiner un nombre de friandises égal à votre bonus de maîtrise si vous avez des ingrédients et des ustensiles de cuisinier sous la main. Ces friandises spéciales se gardent 8 heures après leur préparation. Une créature peut utiliser une action Bonus pour en manger une et gagner un nombre de points de vie temporaires égal à votre bonus de maîtrise.
 
 ### COGNEUR LOURD
 
@@ -71,9 +71,9 @@ _Don général (prérequis : niveau 4 ou supérieur, Force 13 ou plus)_ Vous rec
 
 **Augmentation de caractéristique.** Votre valeur de Force augmente de 1, jusqu'à un maximum de 20.
 
-**Expert en armes lourdes.** Lorsque vous touchez une créature avec une arme qui a la propriété Lourde dans le cadre de l'action Attaque à votre tour, vous pouvez déclarer une arme lourde et infliger 1d4 dégâts supplémentaires à la cible. Ces dégâts supplémentaires sont égaux à votre bonus de maîtrise.
+**Expert en armes lourdes.** Lorsque vous touchez une créature avec une arme possédant la propriété Lourde lors de l'action Attaque à votre tour, vous pouvez infliger des dégâts supplémentaires à la cible. Ces dégâts supplémentaires sont égaux à votre bonus de maîtrise.
 
-**Abattage.** Aussitôt après avoir obtenu un Coup critique avec une arme à corps à corps ou avoir fait le dernier coup critique une créature avec une telle arme, vous pouvez effectuer une attaque avec la même arme par une action Bonus.
+**Abattage.** Immédiatement après avoir réussi un Coup critique avec une arme de corps à corps ou réduit une créature à 0 point de vie avec une telle arme, vous pouvez effectuer une attaque avec la même arme en tant qu'action Bonus.
 
 ### COMBATTANT À DEUX ARMES
 
@@ -81,11 +81,9 @@ _Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou 
 
 **Augmentation de caractéristique.** Votre valeur de Force ou de Dextérité augmente de 1, jusqu'à un maximum de 20.
 
-**Combat à deux armes amélioré.** Lorsque vous effectuez l'action Attaque à votre tour et attaquez avec une arme qui possède la propriété Légère, vous pouvez effectuer une attaque supplémentaire par une action Bonus (plus tard au cours de ce même tour avec une arme différente, qui doit aussi avoir la propriété Légère.
+**Combat à deux armes amélioré.** Lorsque vous prenez l'action Attaque pendant votre tour et attaquez avec une arme qui possède la propriété Légère, vous pouvez effectuer une attaque supplémentaire en tant qu'action Bonus plus tard au cours du même tour avec une arme différente, qui doit être une arme de corps à corps sans la propriété Deux mains. Vous n'ajoutez pas votre modificateur de caractéristique aux dégâts de l'attaque supplémentaire, sauf si ce modificateur est négatif.
 
-**Deux mains.** Vous n'ajoutez pas votre modificateur de caractéristique aux dégâts de l'attaque supplémentaire, sauf si ce modificateur est négatif.
-
-**Dégagement rapide.** Vous pouvez dégainer ou ranger deux armes qui n'ont pas la propriété Deux mains alors que vous ne pourriez normalement en dégainer ou en ranger qu'une seule.
+**Dégainage rapide.** Vous pouvez dégainer ou ranger deux armes sans la propriété Deux mains alors que vous ne pourriez normalement n'en dégainer ou ranger qu'une seule.
 
 ### COMBATTANT MONTÉ
 
@@ -115,11 +113,11 @@ _Don général (prérequis : niveau 4 ou supérieur, Dextérité 13 ou plus)_ Vo
 
 **Augmentation de caractéristique.** Votre valeur de Dextérité augmente de 1, jusqu'à un maximum de 20.
 
-**Vision aveugle.** Vous disposez de la Vision aveugle sur 3 m.
+**Vision aveugle.** Vous obtenez la Vision aveugle avec une portée de 3 mètres.
 
-**Assaillant de guerre.** Tirant parti des moindres distractions du champ de bataille, vous recevez l'Avantage à tout test de Dextérité (Discrétion) que vous tentez dans le cadre de l'action Furtivité lors d'un combat.
+**Brouillard de guerre.** Vous exploitez les distractions du combat et obtenez un Avantage à chaque jet de Dextérité (Discrétion) effectué lors de l'action Furtivité pendant le combat.
 
-**Tireur discret.** Si vous ratez un jet d'Attaque en étant furtif, ce jet d'attaque ne dévoile pas votre position.
+**Tireur discret.** Si vous effectuez un jet d'attaque à distance caché et que celui-ci échoue, votre position n'est pas révélée.
 
 ### DUELLISTE DÉFENSIF
 
@@ -206,9 +204,9 @@ _Don général (prérequis : niveau 4 ou supérieur)_ Vous recevez les bénéfic
 
 **Augmentation de caractéristique.** Votre valeur de Constitution augmente de 1, jusqu'à un maximum de 20.
 
-**Grimper avec l'Avantage.** Vous avez l'Avantage aux jets de sauvegarde contre la mort.
+**Trompe-la-mort.** Vous bénéficiez d'un Avantage aux jets de sauvegarde contre la mort.
 
-**Récupération rapide.** Par une action Bonus, vous pouvez dépenser l'un de vos dés de vie pour le d6 et récupérer un nombre de points de vie égal au résultat.
+**Récupération rapide.** Par une action Bonus, vous pouvez dépenser un de vos Dés de vie, lancer le dé et regagner un nombre de points de vie égal au résultat.
 
 ### INCANTATEUR D'ÉLITE
 
@@ -251,18 +249,15 @@ Chaque fois que votre bonus de maîtrise augmente par la suite, vous pouvez ajou
 _Don général (prérequis : niveau 4 ou supérieur)_ Vous recevez les bénéfices suivants:
 
 **Augmentation de caractéristique.** Votre valeur de Force ou de Dextérité augmente de 1, jusqu'à un maximum de 20.
+### MAÎTRE D'HAST
 
-**Propriété bonus.** Votre compétence martiale vous permet de recevoir la bonté de tous types d'arme courante ou de guerre de votre choix, à condition d'en avoir la maîtrise. Chaque fois que vous terminez un Repos long, vous pouvez changer le type d'arme par un autre type autorisé.
+_Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou plus)_ Vous bénéficiez des avantages suivants.
 
-### MAÎTRE DU HAST
+**Augmentation de caractéristique.** Augmentez votre Dextérité ou Force de 1, jusqu'à un maximum de 20.
 
-_Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou plus)_ Vous recevez les bénéfices suivants:
+**Frappe double.** Immédiatement après avoir pris l'action Attaque et attaqué avec un Bâton, une Lance ou une arme possédant les propriétés Lourde et Allonge, vous pouvez utiliser une action Bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. L'arme inflige des dégâts contondants, et le dé de dégâts de l'arme pour cette attaque est un d4.
 
-**Augmentation de caractéristique.** Votre valeur de Force ou de Dextérité augmente de 1, jusqu'à un maximum de 20.
-
-**Frappe double.** Aussitôt après avoir effectué l'action Attaque et attaque avec un bâton de combat, une lance ou toute arme ayant les propriétés Lourde et Allonge, vous pouvez, par une action Bonus, effectuer une attaque de corps à corps avec l'autre extrémité de l'arme. L'arme inflige alors des dégâts contondants, et non de ses dégâts pour cette attaque est un d4.
-
-**Frappe réactive.** Si vous tenez un bâton de combat, une lance ou toute arme ayant les propriétés Lourde et Allonge, vous pouvez jouer votre Réaction pour effectuer une attaque de corps à corps contre une créature qui pénètre dans la zone d'allonge de cette arme.
+**Frappe réactive.** Lorsque vous tenez un Bâton, une Lance ou une arme possédant les propriétés Lourde et Allonge, vous pouvez prendre une Réaction pour effectuer une attaque au corps à corps contre une créature qui entre dans l'allonge de cette arme.
 
 ### MAÎTRE-ARBALÉTRIER
 
