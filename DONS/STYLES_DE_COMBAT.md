@@ -27,7 +27,7 @@ Lorsque vous effectuez une attaque supplémentaire résultant de l'emploi d'une 
 
 _Don de Style de combat (prérequis : aptitude Style de combat)_
 
-Lorsque vous touchez avec attaque à mains nues et infligez des dégâts, vous pouvez infliger un total de dégâts contondants égal à 1d6 + votre modificateur de Force à la place des dégâts normaux d'attaque à mains nues. Si vous ne tenez aucune arme ou bouclier lorsque vous effectuez le jet d'attaque, ce d6 devient un d8.
+Lorsque vous touchez avec votre attaque à mains nues et infligez des dégâts, vous pouvez infliger un total de dégâts contondants égal à 1d6 + votre modificateur de Force à la place des dégâts normaux d'attaque à mains nues. Si vous ne tenez aucune arme ou bouclier lorsque vous effectuez le jet d'attaque, ce d6 devient un d8.
 
 Au début de chacun de vos tours, vous pouvez infliger 1d4 dégâts contondants à une créature à laquelle vous imposez l'état Agrippé.
 
@@ -57,6 +57,6 @@ Lorsqu'une créature que vous voyez touche une autre créature dans un rayon de 
 
 ### PROTECTION
 
-Don de Style de combat (prérequis: aptitude Style de combat)
+_Don de Style de combat (prérequis : aptitude Style de combat)_
 
-Lorsqu'une créature que vous voyez attaque une cible autre que vous située dans un rayon de 1,50 m. vous pouvez jouer votre Réaction pour interposer votre bouclier si vous en portez un. Vous imposez le Désavantage au jet d'attaque déclencheur et à tous les autres jets d'attaque contre la cible jusqu'au début de votre tour suivant, à condition que vous restiez à 1.50 m ou moins de la cible.
+Lorsqu'une créature que vous voyez attaque une cible autre que vous située dans un rayon de 1,50 m, vous pouvez jouer votre Réaction pour interposer votre bouclier si vous en portez un. Vous imposez le Désavantage au jet d'attaque déclencheur et à tous les autres jets d'attaque contre la cible jusqu'au début de votre tour suivant, à condition que vous restiez à 1,50 m ou moins de la cible.
