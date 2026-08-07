@@ -53,7 +53,7 @@ _Don d'origines_ Vous recevez les bénéfices suivants:
 
 ### GUÉRISSEUR
 
-_Don d'origines_ Vous recevez les bénéfices suivants: **Soigneur de bataille.** Si vous disposez d'une trousse de soins, vous pouvez en dépenser une utilisation pour soigner une créature dans un rayon de 1,50 m par une action Bonus. Lorsque vous le faites, la créature récupère un nombre de points de vie égal à 1d4 + votre bonus de maîtrise au choix plutôt qu'au total obtenu : votre points de maîtrise. **Retirer la douleur.** Chaque fois que vous lancez un dé pour déterminer le nombre de points de vie que vous faites récupérer avec un sort ou un bénéfice Soigneur de bataille, vous pouvez relancer le dé et le résultat est un 1. Cependant il faut appliquer alors.
+_Don d'origines_ Vous bénéficiez des avantages suivants: **Soigneur de bataille.** Si vous possédez une trousse de soins, vous pouvez dépenser une utilisation et soigner une créature à 1,50 m ou moins de vous par une action Utilisation. Cette créature peut dépenser un de ses Dés de vie, puis vous lancez ce dé. La créature récupère un nombre de points de vie égal au résultat du jet plus votre bonus de maîtrise. **Retirage des soins.** Chaque fois que vous lancez un dé pour déterminer le nombre de points de vie que vous restaurez avec un sort ou avec l'avantage Soigneur de bataille de ce don, vous pouvez relancer le dé si vous avez obtenu un 1, et devez utiliser le nouveau résultat.
 
 ### INITIÉ À LA MAGIE
 
