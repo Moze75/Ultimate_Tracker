@@ -36,9 +36,9 @@ _Don d'origines_ Vous recevez les bénéfices suivants:
 
 **Ressource.** Chaque fois que vous achevez un objet non magique, vous bénéficiez d'une réduction de 20 % du coût de fabrication de cet objet.
 
-**Façonnage rapide.** Lorsque vous terminez un Repos long, vous pouvez fabriquer une pièce d'équipement de la table Façonnage rapide en dépensant les ressources et outils d'artisan associés à cet objet et d'en avoir la maîtrise. L'objet dure jusqu'à ce que vous terminez un autre Repos long, après quoi il se désagrège.
+**Façonnage rapide.** Lorsque vous terminez un Repos long, vous pouvez fabriquer une pièce d'équipement de la table Façonnage rapide ci-dessous en dépensant les ressources et outils d'artisan associés à cet objet et d'en avoir la maîtrise. L'objet dure jusqu'à ce que vous terminez un autre Repos long, après quoi il se désagrège.
 
-### FAÇONNAGE RAPIDE
+**Table Façonnage rapide**
 
 |Outils d'artisan|Équipement fabriqué|
 |---|---|
