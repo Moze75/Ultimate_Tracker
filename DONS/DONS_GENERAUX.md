@@ -39,7 +39,9 @@ _Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou 
 
 **Vitesse d'escalade.** Vous recevez une Vitesse d'escalade égale à votre Vitesse.
 
-**Saut.** Vous pouvez effectuer un saut en longueur ou en hauteur après un déplacement de 1,50 m seulement.
+**Rétablissement.** Lorsque vous êtes à terre, vous pouvez vous redresser avec seulement 1,50 mètre de mouvement.
+
+**Saut.** Vous pouvez effectuer un saut en longueur ou en hauteur après avoir parcouru seulement 1,50 mètre.
 
 ### BROYEUR
 
@@ -47,9 +49,9 @@ _Don général (prérequis : niveau 4 ou supérieur)_ Vous recevez les bénéfic
 
 **Augmentation de caractéristique.** Votre valeur de Force ou de Constitution augmente de 1, jusqu'à un maximum de 20.
 
-**Coup de grâce supplémentaire.** Lorsque vous touchez une créature avec une attaque qui lui inflige les dégâts contondants, vous pouvez la pousser de 1,50 m dans un espace inoccupé, à condition que la créature de taille M la cible ou soit plus petite que vous.
+**Bourrade.** Une fois par tour, lorsque vous touchez une créature avec une attaque infligeant des dégâts contondants, vous pouvez la déplacer de 1,50 mètre vers une case libre si la cible ne fait pas plus d'une taille de plus que vous.
 
-**Critique renforcé.** Lorsque vous obtenez un Coup critique sur une cible, ses dégâts contondants, à ses jets d'Attaque contre cette créature ont l'Avantage jusqu'au début de votre tour suivant.
+**Critique renforcé.** Lorsque vous réussissez un Coup critique infligeant des dégâts contondants à une créature, les jets d'attaque contre cette créature bénéficient d'un Avantage jusqu'au début de votre prochain tour.
 
 ### CHEF CUISINIER
 
@@ -127,17 +129,17 @@ _Don général (prérequis : niveau 4 ou supérieur, Dextérité 13 ou plus)_ Vo
 
 **Parade.** Si vous tenez une arme avec la propriété Finesse et qu'une autre créature vous frappe avec une attaque de corps à corps, vous pouvez ajouter votre bonus de maîtrise à votre CA contre l'attaque défensive. Vous recevez ce bonus à votre CA contre les attaques de corps à corps jusqu'au début de votre tour suivant.
 
-### EMPOISONNEUR
+### EMPOIGNEUR
 
-_Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou plus)_ Vous recevez les bénéfices suivants:
+_Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou plus)_ Vous bénéficiez des avantages suivants:
 
-**Augmentation de caractéristique.** Votre valeur de Force ou de Dextérité augmente de 1, jusqu'à un maximum de 20.
+**Augmentation de caractéristique.** Augmentez votre Force ou Dextérité de 1, jusqu'à un maximum de 20.
 
-**Frappe et empoisonnade.** Lorsque vous touchez une créature avec une attaque armée dans le cadre de l'action Attaque à votre tour, vous pouvez recouvrir simultanément son arme d'objet sur l'objet. Vous ne pouvez recourir à ce bénéfice que seule fois par tour.
+**Frappe et empoignade.** Lorsque vous touchez une créature avec une Frappe à mains nues lors de votre action Attaque pendant votre tour, vous pouvez utiliser à la fois les options Dégâts et Lutte. Vous ne pouvez utiliser cet avantage qu'une fois par tour.
 
-**Attaque avec Avantage.** Vous avez l'Avantage aux jets d'attaque contre une créature à laquelle vous imposez l'état Empoisonné.
+**Attaque avec Avantage.** Vous bénéficiez d'un Avantage aux jets d'attaque contre une créature que vous agrippez.
 
-**Lettrer rapide.** Il ne vous en coûte aucun déplacement supplémentaire lorsque vous déplacez une créature à laquelle vous imposez l'état Agrippé, à condition que cette créature soit de catégorie de taille égale ou inférieure.
+**Lutteur rapide.** Vous n'avez pas besoin de dépenser un mouvement supplémentaire pour déplacer une créature que vous agrippez si celle-ci est de votre taille ou plus petite.
 
 ### EMPOISONNEUR
 
@@ -176,7 +178,7 @@ _Don général (prérequis : niveau 4 ou supérieur, Force ou Dextérité 13 ou 
 
 **Augmentation de caractéristique.** Votre valeur de Force ou de Dextérité augmente de 1, jusqu'à un maximum de 20.
 
-**Pointe améliorée.** Lorsque vous entreprenez l'action Foncer, votre Vitesse augmente de 3 m dans le cadre de cette action.
+**Pointe améliorée.** Lorsque vous prenez l'action Pointe, votre vitesse augmente de 3 mètres pour cette action.
 
 **Attaque de charge.** Si vous vous déplacez d'au moins 3 m en ligne droite vers une cible aussitôt avant d'effectuer contre elle un jet d'attaque de corps à corps dans le cadre de l'action Attaque, choisissez l'un des effets suivants : recevez un bonus de 1d8 au jet de dégâts de l'attaque, ou repoussez la cible d'un maximum de 3 m si sa catégorie de taille n'excède pas la vôtre de plus d'un cran. Vous ne pouvez recourir à ce bénéfice qu'une seule fois à chacun de vos tours.
 
