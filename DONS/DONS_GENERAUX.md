@@ -185,7 +185,7 @@ _Don général (prérequis : niveau 4 ou supérieur, Sagesse ou Charisme 13 ou p
 
 **Augmentation de caractéristique.** Votre valeur de Sagesse ou de Charisme augmente de 1, jusqu'à un maximum de 20.
 
-**Représentation galvanisante.** À la fin d'un Repos court ou long, vous pouvez donner une représentation galvanisante, discourir, chanter ou danser, ou raconter, jouant d'un allié qui peuvent vous inclure dans un rayon de 9 m parmi les créatures qui sont ainsi à la représentation. Les créatures désignées reçoivent chacune autant de points de vie temporaires que votre niveau de personnage + le modificateur de la caractéristique que ce don a augmentée.
+**Représentation galvanisante.** Lorsque vous terminez un Repos court ou long, vous pouvez donner une représentation inspirante : un discours, un chant ou une danse. Dans ce cas, choisissez jusqu'à six alliés (vous pouvez vous choisir) dans un rayon de 9 mètres qui assistent à la représentation. Les créatures choisies gagnent chacune des points de vie temporaires égaux à votre niveau de personnage plus le modificateur de la caractéristique que ce don a augmentée.
 
 ### FORMATION AUX ARMES DE GUERRE
 
@@ -214,9 +214,9 @@ _Don général (prérequis : niveau 4 ou supérieur, aptitude Sorts ou Magie de 
 
 **Contournement d'abri.** Vos jets d'attaque de sort ne sont pas affectés par l'Abri partiel et l'Abri supérieur.
 
-**Incantation au corps à corps.** Vous évoluer dans un rayon de 1,50 m d'un adversaire n'impose pas le Désavantage à vos jets d'attaque de sort.
+**Incantation au corps à corps.** Être à 1,50 mètre ou moins d'un ennemi n'inflige pas de Désavantage à vos jets d'attaque avec des sorts.
 
-**Portée améliorée.** Lorsque vous lancez un sort ayant une portée de 3 m ou plus et nécessitant un jet d'attaque, vous pouvez augmenter de 36 m la portée de ce sort.
+**Portée améliorée.** Lorsque vous lancez un sort d'une portée d'au moins 3 mètres et qui nécessite un jet d'attaque, vous pouvez augmenter sa portée de 18 mètres.
 
 ### MAGE DE GUERRE
 
@@ -226,7 +226,7 @@ _Don général (prérequis : niveau 4 ou supérieur, aptitude Sorts ou Magie de 
 
 **Concentration.** Vous avez l'Avantage aux jets de sauvegarde de Constitution visant à maintenir la Concentration.
 
-**Sort réactif.** Lorsqu'une créature provoque une attaque d'Opportunité de votre part en quittant votre allonge, vous pouvez jouer votre Réaction pour lancer un sort ayant une créature alliée au défectuer une attaque d'Opportunité. Ce sort doit avoir un temps d'incantation d'une action et doit cibler cette créature.
+**Sort réactif.** Lorsqu'une créature provoque une Attaque d'opportunité de votre part en quittant votre allonge, vous pouvez prendre une Réaction pour lancer un sort sur elle, au lieu d'effectuer une Attaque d'opportunité. Le sort doit avoir un temps d'incantation d'une action et ne doit cibler que cette créature.
 
 **Composante somatique.** Vous pouvez exécuter la composante somatique d'un sort même si vous avez les deux mains prises par des armes ou un bouclier.
 
@@ -266,9 +266,9 @@ _Don général (prérequis : niveau 4 ou supérieur, Dextérité 13 ou plus)_ Vo
 
 **Augmentation de caractéristique.** Votre valeur de Dextérité augmente de 1, jusqu'à un maximum de 20.
 
-**Chargement rapide.** Vous fois par tour, vous ignorez la propriété Chargement de l'arbalète de poing, de l'arbalète lourde et de l'arbalète légère (toutes appellées « arbalètes » ailleurs dans le texte de ce don). Si vous tenez l'une d'elles, vous pouvez y charger une munition même en l'absence de main libre.
+**Chargement rapide.** Vous ignorez la propriété Chargement de l'arbalète de poing, de l'arbalète lourde et de l'arbalète légère (toutes appelées arbalètes par la suite dans ce don). Si vous tenez l'une d'elles, vous pouvez charger une munition même sans main libre.
 
-**Tir au corps à corps.** Vous évoluer dans un rayon de 1,50 m d'un adversaire n'impose pas le Désavantage à vos attaques à distance avec une arbalète.
+**Tir au corps à corps.** Être à 1,50 mètre ou moins d'un ennemi n'inflige pas de Désavantage à vos jets d'attaque avec des arbalètes.
 
 **Arbalète secondaire.** Lorsque vous effectuez l'attaque supplémentaire de la propriété Légère, vous pouvez ajouter votre modificateur de caractéristique aux dégâts de l'attaque supplémentaire si celle-ci est effectuée avec une arbalète ayant la propriété Léger et si vous n'ajoutez pas déjà ce modificateur aux dégâts.
 
@@ -334,7 +334,7 @@ Vous recevez les bénéfices suivants:
 
 **Augmentation de caractéristique.** Votre valeur de Force ou de Dextérité augmente de 1, jusqu'à un maximum de 20.
 
-**Perforation.** Une fois par tour, lorsque vous touchez une créature avec une attaque qui inflige des dégâts perforants, vous pouvez relancer l'un des dés de dégâts correspondants. Il nouveau jet s'applique alors.
+**Perforation.** Une fois par tour, lorsque vous touchez une créature avec une attaque infligeant des dégâts perforants, vous pouvez relancer l'un des dés de dégâts de l'attaque et vous devez utiliser le nouveau jet.
 
 **Critique renforcé.** Lorsque vous obtenez un Coup critique qui inflige des dégâts perforants à une créature, vous pouvez lancer un dé de dégâts de plus lorsque vous déterminez les dégâts perforants supplémentaires subis par la cible.
 
