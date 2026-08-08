@@ -7,7 +7,7 @@ _Don général (prérequis : niveau 4 ou supérieur, aptitude Sorts ou Pacte de 
 
 **Augmentation de caractéristique.** Votre valeur d'Intelligence, de Sagesse ou de Charisme augmente de 1, jusqu'à un maximum de 20.
 
-**Maîtrise des énergies.** Choisissez un type de dégâts parmi les suivants : Acide, Feu, Foudre, Froid et Tonnerre. Les sorts que vous lancez ne sont pas affectés par la Résistance aux dégâts de ce type choisi. De outre, lorsque vous effectuez un jet de dégâts pour un sort que vous lancez et qui inflige des dégâts de ce type, vous pouvez considérer tout résultat de 1 sur un de de dégâts comme un 2.
+**Maîtrise des énergies.** Choisissez un type de dégâts parmi les suivants : Acide, Feu, Foudre, Froid et Tonnerre. Les sorts que vous lancez ne sont pas affectés par la Résistance aux dégâts de ce type choisi. En outre, lorsque vous effectuez un jet de dégâts pour un sort que vous lancez et qui inflige des dégâts de ce type, vous pouvez considérer tout résultat de 1 sur un de de dégâts comme un 2.
 
 **Répétable.** Vous pouvez sélectionner ce don plus d'une fois, mais devez choisir un type de dégâts différent à chaque fois pour Maîtrise des énergies.
 
