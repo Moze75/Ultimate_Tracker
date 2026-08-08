@@ -91,11 +91,9 @@ _Don général (prérequis : niveau 4 ou supérieur)_ Vous recevez les bénéfic
 
 **Augmentation de caractéristique.** Votre valeur de Force, de Dextérité ou de Sagesse augmente de 1, jusqu'à un maximum de 20.
 
-**Frappe montée.** Sur une monture, vous avez l'Avantage aux jets d'attaque contre les créatures à pied qui sont de taille inférieure à celle de la monture et dont la catégorie de taille est inférieure d'au moins un PV pour son véhicule actuel : votre.
+**Frappe montée.** Lorsque vous êtes sur une monture, vous bénéficiez d'un Avantage aux jets d'attaque contre toute créature non montée dans un rayon de 1,50 m autour de votre monture et dont la taille est inférieure d'au moins une taille à celle de votre monture.
 
-**Pas de côté.** Si votre monture est soumise à un effet qui lui permet d'effectuer un jet de sauvegarde de Dextérité pour réduire les dégâts de moitié, elle ne subit en fait aucun dégât et est atteinte d'aucun mal en cas de réussite et des dégâts de moitié seulement en cas d'échec. Pour qu'elle reçoive ce bénéfice, vous devez chevaucher votre monture, et ni vous ni elle ne devez subir l'état Neutralisé.
-
-**Déviation.** Sur votre monture, vous pouvez contraindre une attaque qui touche celle-ci de vous toucher à la place, à condition que vous ne subissiez pas l'état Neutralisé.
+**Pas de côté.** Si votre monture est soumise à un effet qui lui permet d'effectuer un jet de sauvegarde de Dextérité pour ne subir que la moitié des dégâts, elle ne subit aucun dégât en cas de réussite au jet de sauvegarde et seulement la moitié en cas d'échec. Pour que votre monture bénéficie de cet avantage, vous devez la monter et aucun de vous deux ne doit être Incapable d'agir.
 
 ### COMÉDIEN
 
@@ -105,7 +103,7 @@ _Don général (prérequis : niveau 4 ou supérieur, Charisme 13 ou plus)_ Vous 
 
 **Imposture.** Lorsque vous êtes déguisé en une personne réelle ou fictive, vous avez l'Avantage aux tests de Charisme (Représentation ou Tromperie) visant à convaincre autrui que vous êtes bien cette personne.
 
-**Imitation.** Vous savez imiter les sons d'autres créatures. À compris le cri d'une créature qui entend votre imitation ou soit réussir un test de Sagesse (Intuition) pour déterminer qu'elle est fausse (DD égal à 8 + votre bonus de maîtrise + votre bonus de Charisme).
+**Imitation.** Vous pouvez imiter les bruits d'autres créatures, y compris la parole. Une créature qui entend ce mimétisme doit réussir un jet de Sagesse (Intuition) pour se rendre compte qu'il s'agit d'une imitation (DD 8 plus votre modificateur de Charisme et votre bonus de maîtrise).
 
 ### DISCRET
 
